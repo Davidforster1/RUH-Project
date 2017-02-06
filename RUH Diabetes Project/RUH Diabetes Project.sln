@@ -1,0 +1,26 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2015
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RUH Diabetes Project.CSharp", "RUH Diabetes Project.CSharp.csproj", "{3FF57F20-8947-79B6-8C2E-2AEC43EAE787}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RUH Diabetes Project.CSharp.Editor", "RUH Diabetes Project.CSharp.Editor.csproj", "{32BEE4D6-407B-B80B-47E8-DE96745CEBF4}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{3FF57F20-8947-79B6-8C2E-2AEC43EAE787}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3FF57F20-8947-79B6-8C2E-2AEC43EAE787}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3FF57F20-8947-79B6-8C2E-2AEC43EAE787}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3FF57F20-8947-79B6-8C2E-2AEC43EAE787}.Release|Any CPU.Build.0 = Release|Any CPU
+		{32BEE4D6-407B-B80B-47E8-DE96745CEBF4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{32BEE4D6-407B-B80B-47E8-DE96745CEBF4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{32BEE4D6-407B-B80B-47E8-DE96745CEBF4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{32BEE4D6-407B-B80B-47E8-DE96745CEBF4}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
