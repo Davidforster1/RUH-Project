@@ -15,4 +15,24 @@ public class mainMenuNav : MonoBehaviour {
         Application.Quit();
     }
 
+    public void UserSelectYearMenu()
+    {
+        SceneManager.LoadScene("yearSelection");
+    }
+
+    public void UserSelectMainMenu()
+    {
+        SceneManager.LoadScene("mainMenu");
+    }
+
+    public void UserSelectYear1Activity()
+    {
+        SceneManager.LoadScene("year1Activity");
+    }
+
+    public void UserSelectYear1()
+    {
+        SceneManager.LoadScene("year1Menu");
+    }
+
 }
