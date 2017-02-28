@@ -114,6 +114,7 @@
     <Compile Include="Assets\Scripts\mainMenuNav.cs" />
     <Compile Include="Assets\Scripts\year1GameManager.cs" />
     <Compile Include="Assets\Scripts\year1Quiz.cs" />
+    <Compile Include="Assets\Scripts\year1Results.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\MaterialUI\Fonts\NOTICE.txt" />

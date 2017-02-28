@@ -5,6 +5,6 @@ using UnityEngine.UI;
 [System.Serializable]
 public class year1Quiz {
 
-    public Image image;
+    public Texture image;
     public bool isCorrect;
 }
