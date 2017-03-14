@@ -18,6 +18,9 @@ public class year1GameManager : MonoBehaviour {
     public Text resultsText;
 
     [SerializeField]
+    public Text foodName;
+
+    [SerializeField]
     AudioSource wrong;
 
     [SerializeField]
@@ -51,6 +54,7 @@ public class year1GameManager : MonoBehaviour {
         currentQuestion = unansweredQuestions[randomImageIndex];
 
         questionImage.texture = currentQuestion.image; // sets the image to the current question image 
+        foodName.text = currentQuestion.foodName;
 
         unansweredQuestions.RemoveAt(randomImageIndex);   // removes a question once it's been answered
     }
