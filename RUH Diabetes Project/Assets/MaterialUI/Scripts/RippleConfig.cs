@@ -63,7 +63,7 @@ namespace MaterialUI
 		private Mask thisMask;
 		private Canvas theCanvas;
 		private Camera theCamera;
-		private Image thisImage;
+		private RawImage thisImage;
 		private bool worldSpace;
 
 		private Color normalColor;
@@ -81,13 +81,14 @@ namespace MaterialUI
 
 		public void Setup()
 		{
-			thisImage = gameObject.GetComponent<Image>();
-		}
+			thisImage = gameObject.GetComponent<RawImage>();
+            thisImage = gameObject.GetComponent<RawImage>();
+        }
 
 		void Awake()
 		{
 			RippleControl.Initialize();
-			thisImage = gameObject.GetComponent<Image>();
+			thisImage = gameObject.GetComponent<RawImage>();
 		}
 
 		void Start()
