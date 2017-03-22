@@ -15,8 +15,8 @@ public class year2Results : MonoBehaviour
     // Use this for initialization - Stores the values 
     void Start()
     {
-        score = year2GameManager.score;
-        questionsDone = year2GameManager.questionsDone;
+        score = year2GameManager2.score;
+        questionsDone = year2GameManager.questionsDoneOne + year2GameManager2.questionsDoneTwo;
         resultsText.text = "You scored " + score.ToString() + "/" + questionsDone;
     }
 

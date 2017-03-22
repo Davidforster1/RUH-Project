@@ -34,9 +34,18 @@ public class year2GameManager : MonoBehaviour
     RawImage answer3; // The picture of food 
 
     [SerializeField]
+    Text foodnameOne;
+
+    [SerializeField]
+    Text foodnameTwo;
+
+    [SerializeField]
+    Text foodnameThree;
+
+    [SerializeField]
     private float timeBetweenQuestions = 2f; // delay between questions 
 
-    public static int questionsDone;
+    public static int questionsDoneOne;
 
     public static int score;
 
@@ -61,6 +70,10 @@ public class year2GameManager : MonoBehaviour
         answer2.texture = currentQuestion.image2;
         answer3.texture = currentQuestion.image3;
 
+        foodnameOne.text = currentQuestion.imageLabel;
+        foodnameTwo.text = currentQuestion.image2Label;
+        foodnameThree.text = currentQuestion.image3Label;
+
         unansweredQuestions.RemoveAt(randomImageIndex);   // removes a question once it's been answered
     }
 
@@ -72,12 +85,12 @@ public class year2GameManager : MonoBehaviour
 
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex); // restarts the scene to update question
 
-        if (questionsDone == 1)
+        if (questionsDoneOne == 7)
         {
-            SceneManager.LoadScene("year2Results"); // if questions done = all of them, load results screen
+            SceneManager.LoadScene("year2Menu2"); // if questions done = all of them, load results screen
         }
 
-        questionsDone++;
+        questionsDoneOne++;
     }
 
     public void firstAnswer()
@@ -144,7 +157,9 @@ public class year2GameManager : MonoBehaviour
 
     public void year1ResetScore()
     {
+        year2GameManager2.score = 0;
         score = 0;
-        questionsDone = 0;
+        questionsDoneOne = 0;
+        year2GameManager2.questionsDoneTwo = 0;
     }
 }

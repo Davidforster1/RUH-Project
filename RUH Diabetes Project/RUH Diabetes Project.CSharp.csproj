@@ -116,7 +116,9 @@
     <Compile Include="Assets\Scripts\year1Quiz.cs" />
     <Compile Include="Assets\Scripts\year1Results.cs" />
     <Compile Include="Assets\Scripts\year2GameManager.cs" />
+    <Compile Include="Assets\Scripts\year2GameManager2.cs" />
     <Compile Include="Assets\Scripts\year2Quiz.cs" />
+    <Compile Include="Assets\Scripts\year2Quiz2.cs" />
     <Compile Include="Assets\Scripts\year2Results.cs" />
   </ItemGroup>
   <ItemGroup>

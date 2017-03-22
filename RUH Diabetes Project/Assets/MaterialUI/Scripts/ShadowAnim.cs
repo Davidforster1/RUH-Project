@@ -61,10 +61,10 @@ namespace MaterialUI
 
 		public void SetShadow (bool set)
 		{
-			isOn = set;
+		/*	isOn = set;
 			anim = true;
 			foreach (Image shadow in shadows)
-				shadow.enabled = true;
+				shadow.enabled = true;*/
 		}
 	}
 }

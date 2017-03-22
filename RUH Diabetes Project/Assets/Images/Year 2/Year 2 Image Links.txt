@@ -1,11 +1,14 @@
 Pizza - https://pixabay.com/en/america-american-baked-bread-1238739/
-Sausage - https://pixabay.com/en/grilled-meats-barbecue-meat-grill-1309495/
+Salad - http://www.cicis.com/media/1235/saladbar_saladmix.png
+Croutons - http://ghk.h-cdn.co/assets/cm/15/11/54fdf79c019be-croutons-0610-recipe-xl.jpg
+Sausage - http://bonappetitalpes.com/wp-content/uploads/2015/12/suasages1.jpg
 Beans - https://www.thesun.co.uk/wp-content/uploads/2016/08/nintchdbpict000137081456.jpg?w=960&strip=all
 Chicken - https://www.bostonsausage.co.uk/wp-content/uploads/2010/05/Double-stuffed-chicken-breast.jpg
 Spaghetti - https://thumbs.dreamstime.com/x/plain-spaghetti-tossed-olive-oil-22309333.jpg
 Vegetables - https://thumbs.dreamstime.com/x/fresh-vegetables-white-plate-13707158.jpg
 Omelette - http://www.centralfoods.co.uk/Portals/0/Products/898/prod_898.jpg
 Chips - http://burtonkebab.co.uk/admin/data/images/products/p_img_05286e49fb2192f5c587b72184006aba_1457028585.png
+Ketchup - http://media.jrn.com/images/ketchup+stock+istock.jpg
 Cheese Sandwich - http://ryestreetbrands.com/images/sand/turkeycheese.jpg
 Grapes / Bananas - https://thumbs.dreamstime.com/x/high-resolution-photo-dark-grapes-bananas-11637656.jpg
 Apple - https://upload.wikimedia.org/wikipedia/commons/0/07/Honeycrisp-Apple.jpg
@@ -15,3 +18,5 @@ Rice - http://discovermagazine.com/~/media/Images/Issues/2013/Jan-Feb/rice.jpg
 Brocolli / Carroots - http://the-crafty-designer.com/wp-content/uploads/2013/03/broccoli_carrots.jpg
 Chicken - http://cf.cupcakesandcrinoline.com/wp-content/uploads/2016/01/Fresh-baked-and-sliced-chicken-deliciousgametime.png
 Potatoes - http://www.tefal.com/medias/?context=bWFzdGVyfHJvb3R8MTgyNDh8aW1hZ2UvanBlZ3xoMTUvaDkyLzkyNDYxODg5NjE4MjIuanBnfDNkYTEzMjhiYTk2NTlhYWJjNjZmYWQ2MDExMDdiMDIwOTJkNjJlZTg2NmJkOTc5YjNjMmM0OTFlOWM1OTIyNmQ
+
+Plate - http://pngimg.com/uploads/plate/plate_PNG5337.png
