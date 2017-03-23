@@ -58,7 +58,7 @@ public class year2GameManager2 : MonoBehaviour
 
     // public static int totalQuestionsDone;
 
-    public static int score = year2GameManager.score;
+    public static int score2;
 
     private bool beenClicked;
 
@@ -117,7 +117,7 @@ public class year2GameManager2 : MonoBehaviour
             if (currentQuestion.isCorrect)
             {
                 correct.Play(); // plays wrong sound
-                score++;
+                score2++;
             }
             else
             {
@@ -137,7 +137,7 @@ public class year2GameManager2 : MonoBehaviour
             if (currentQuestion.isCorrect2)
             {
                 correct.Play(); // plays wrong sound
-                score++;
+                score2++;
             }
             else
             {
@@ -158,7 +158,7 @@ public class year2GameManager2 : MonoBehaviour
             if (currentQuestion.isCorrect3)
             {
                 correct.Play(); // plays wrong sound
-                score++;
+                score2++;
             }
             else
             {
@@ -179,7 +179,7 @@ public class year2GameManager2 : MonoBehaviour
             if (currentQuestion.isCorrect4)
             {
                 correct.Play(); // plays wrong sound
-                score++;
+                score2++;
             }
             else
             {
@@ -191,14 +191,4 @@ public class year2GameManager2 : MonoBehaviour
         }
     }
 
-    /* public void year1ResetScore()
-    {
-        score = 0;
-        questionsDone = 0;
-    }
-
-    public void year2AcquireQuestionsDone()
-    {
-        questionsDone = year2GameManager.questionsDone;
-    }*/
 }

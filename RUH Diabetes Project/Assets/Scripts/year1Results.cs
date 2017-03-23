@@ -18,4 +18,10 @@ public class year1Results : MonoBehaviour {
         resultsText.text = "You scored " + score.ToString() + "/" + questionsDone;
 	}
 
+    public void yearResetScore()
+    {
+        year1GameManager.score = 0;
+        year1GameManager.questionsDone = 0;
+    }
+
 }

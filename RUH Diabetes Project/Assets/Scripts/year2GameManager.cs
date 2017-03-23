@@ -155,11 +155,4 @@ public class year2GameManager : MonoBehaviour
         }
     }
 
-    public void year1ResetScore()
-    {
-        year2GameManager2.score = 0;
-        score = 0;
-        questionsDoneOne = 0;
-        year2GameManager2.questionsDoneTwo = 0;
-    }
 }

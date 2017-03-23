@@ -117,9 +117,4 @@ public class year1GameManager : MonoBehaviour {
         }
     }
 
-    public void year1ResetScore()
-    {
-        score = 0;
-        questionsDone = 0;
-    }   
 }
