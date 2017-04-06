@@ -60,6 +60,21 @@ public class mainMenuNav : MonoBehaviour {
         SceneManager.LoadScene("year6Activity");
     }
 
+    public void UserSelectYear6Activity2()
+    {
+        SceneManager.LoadScene("year6Activity2");
+    }
+
+    public void UserSelectYear6Activity3()
+    {
+        SceneManager.LoadScene("year6Activity3");
+    }
+
+    public void UserSelectYear6Activity4()
+    {
+        SceneManager.LoadScene("year6Activity4");
+    }
+
     public void UserSelectYear1()
     {
         SceneManager.LoadScene("year1Menu");

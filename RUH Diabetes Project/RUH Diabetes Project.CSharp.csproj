@@ -127,6 +127,15 @@
     <Compile Include="Assets\Scripts\year4Quiz.cs" />
     <Compile Include="Assets\Scripts\year4Results.cs" />
     <Compile Include="Assets\Scripts\year5Draw.cs" />
+    <Compile Include="Assets\Scripts\year6GameManager.cs" />
+    <Compile Include="Assets\Scripts\year6GameManager2.cs" />
+    <Compile Include="Assets\Scripts\year6GameManager3.cs" />
+    <Compile Include="Assets\Scripts\year6GameManager4.cs" />
+    <Compile Include="Assets\Scripts\year6Quiz.cs" />
+    <Compile Include="Assets\Scripts\year6Quiz2.cs" />
+    <Compile Include="Assets\Scripts\year6Quiz3.cs" />
+    <Compile Include="Assets\Scripts\year6Quiz4.cs" />
+    <Compile Include="Assets\Scripts\year6Results.cs" />
     <Compile Include="Assets\lineDrawing.cs" />
   </ItemGroup>
   <ItemGroup>
