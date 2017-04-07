@@ -126,7 +126,10 @@
     <Compile Include="Assets\Scripts\year4GameManager.cs" />
     <Compile Include="Assets\Scripts\year4Quiz.cs" />
     <Compile Include="Assets\Scripts\year4Results.cs" />
-    <Compile Include="Assets\Scripts\year5Draw.cs" />
+    <Compile Include="Assets\Scripts\year5ActivityFructoseLabel.cs" />
+    <Compile Include="Assets\Scripts\year5GameManager.cs" />
+    <Compile Include="Assets\Scripts\year5Quiz.cs" />
+    <Compile Include="Assets\Scripts\year5Results.cs" />
     <Compile Include="Assets\Scripts\year6GameManager.cs" />
     <Compile Include="Assets\Scripts\year6GameManager2.cs" />
     <Compile Include="Assets\Scripts\year6GameManager3.cs" />
