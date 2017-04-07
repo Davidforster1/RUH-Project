@@ -67,7 +67,7 @@ public class year1GameManager : MonoBehaviour {
 
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex); // restarts the scene to update question
 
-        if (questionsDone == 14)
+        if (questionsDone == 9)
         {
             SceneManager.LoadScene("year1Results"); // if questions done = all of them, load results screen
         }

@@ -30,8 +30,6 @@ public class year5GameManager : MonoBehaviour
 
     private bool lineConnected;
 
-    private int lineNumber = 0;
-
     //reference to LineRenderer component
     private LineRenderer line;
     //car to store touch position on the screen
@@ -71,7 +69,7 @@ public class year5GameManager : MonoBehaviour
 
         if (questionsDone == 4)
         {
-            SceneManager.LoadScene("year5Results"); // if questions done = all of them, load results screen
+            SceneManager.LoadScene("year5Activity2"); // if questions done = all of them, load results screen
         }
 
         questionsDone++;
