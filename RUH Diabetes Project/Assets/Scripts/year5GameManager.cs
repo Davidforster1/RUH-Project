@@ -108,24 +108,22 @@ public class year5GameManager : MonoBehaviour
             }
         }
 
-        if (touch.phase == TouchPhase.Began)
-        {              
-            //check if there is no line renderer created
-            if (line == null)
-            {
-                //create the line
-                createLine();
-            }
+		if (touch.phase == TouchPhase.Began) {   
+				//check if there is no line renderer created
+			if (line == null) {
+					//create the line
+					createLine ();
+				}
 
-            //get the touch position
-            touchPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-            //set the z co ordinate to 0 as we are only interested in the xy axes
-            touchPos.z = 0;
-            //set the start point and end point of the line renderer
-            line.SetPosition(0, touchPos);
-            line.SetPosition(1, touchPos);
+				//get the touch position
+				touchPos = Camera.main.ScreenToWorldPoint (Input.mousePosition);
+				//set the z co ordinate to 0 as we are only interested in the xy axes
+				touchPos.z = 0;
+				//set the start point and end point of the line renderer
+				line.SetPosition (0, touchPos);
+				line.SetPosition (1, touchPos);
 
-        }
+		}
         //if line renderer exists and touch stops
         else if (touch.phase == TouchPhase.Ended && line)
         {
@@ -157,11 +155,9 @@ public class year5GameManager : MonoBehaviour
         //create a new empty gameobject and line renderer component
         line = new GameObject("Line" + currLines).AddComponent<LineRenderer>();
         //assign the material to the line
-        line.material = material;
+		line.material = material;
         //set the number of points to the line
         line.SetVertexCount(2);
-        //set line color
-        line.SetColors(Color.white, Color.white);
         //set the width
         line.SetWidth(0.10f, 0.10f);
         //render line to the world origin and not to the object's position
