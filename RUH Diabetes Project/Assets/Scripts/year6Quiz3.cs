@@ -8,5 +8,6 @@ public class year6Quiz3 {
 
     public string foodLabel;
     public Texture foodImage;
-    public float userAnswer;
+    public int minAnswer;
+    public int maxAnswer;
 }

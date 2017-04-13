@@ -85,15 +85,13 @@ public class year6GameManager3 : MonoBehaviour
 
             beenClicked = true;
             // Button click logic here
-            if (converted > (currentQuestion.userAnswer * 1.1) || (converted < (currentQuestion.userAnswer * 0.9)))
+            if (converted >= currentQuestion.minAnswer && converted <= currentQuestion.maxAnswer)
             {
-
-                wrong.Play(); // plays wrong sound
-
+                correct.Play();
             }
             else
             {
-                correct.Play();
+                wrong.Play(); // plays wrong sound
                 score3++;
             }
 

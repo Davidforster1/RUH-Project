@@ -1,4 +1,4 @@
 sceneSetups:
-- path: Assets/Scenes/year5Activity3.unity
+- path: Assets/Scenes/year6Activity4.unity
   isLoaded: 1
   isActive: 1
