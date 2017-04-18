@@ -15,7 +15,7 @@ public class year6Results : MonoBehaviour
     // Use this for initialization - Stores the values 
     void Start()
     {
-        score = year5GameManager.score + year5GameManager2.score2 + year5GameManager3.score3 + +year6GameManager4.score4;
+        score = year6GameManager.score + year6GameManager2.score2 + year6GameManager3.score3 + +year6GameManager4.score4;
         questionsDone = year6GameManager.questionsDone + year6GameManager2.questionsDoneTwo + +year6GameManager3.questionsDoneThree + year6GameManager4.questionsDoneFour;
         resultsText.text = "You scored " + score.ToString() + "/" + questionsDone;
     }
