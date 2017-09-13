@@ -40,7 +40,10 @@ public class year1GameManager : MonoBehaviour {
     RawImage questionImage; // The picture of food 
 
     [SerializeField]
-    public Text emailInput; // Where the user types in their email
+    public InputField emailInput; // Where the user types in their email
+
+    [SerializeField]
+    public Text emailInstructions; // tells the user to enter their email 
 
     [SerializeField]
     private float timeBetweenQuestions = 2f; // delay between questions 
@@ -147,7 +150,6 @@ public class year1GameManager : MonoBehaviour {
         emailAddress = emailInput.text; // variable becomes the email the user types in
         mail.From = new MailAddress("royalunitedhospitals@gmail.com");
         mail.To.Add(emailAddress);
-
         SmtpClient smtpServer = new SmtpClient("smtp.gmail.com");
         smtpServer.Port = 587;
         mail.Subject = "CC-EAT Year One: " + currentDate;
@@ -179,7 +181,7 @@ public class year1GameManager : MonoBehaviour {
             "<br><br>" + "This was sent from the CC-EAT Diabetes App.";
         smtpServer.Credentials = new System.Net.NetworkCredential("royalunitedhospitals@gmail.com", "Cceat123") as ICredentialsByHost;
         smtpServer.EnableSsl = true;
-        SceneManager.LoadScene("year1Results"); // reloads the scene after user clicks button 
+        SceneManager.LoadScene("year1Results"); // reloads the scene after user clicks button         
         ServicePointManager.ServerCertificateValidationCallback =
         delegate (object s, X509Certificate certificate, X509Chain chain, SslPolicyErrors sslPolicyErrors)
         { return true; };
