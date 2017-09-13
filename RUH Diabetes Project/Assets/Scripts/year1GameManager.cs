@@ -43,9 +43,6 @@ public class year1GameManager : MonoBehaviour {
     public InputField emailInput; // Where the user types in their email
 
     [SerializeField]
-    public Text emailInstructions; // tells the user to enter their email 
-
-    [SerializeField]
     private float timeBetweenQuestions = 2f; // delay between questions 
 
     public static int questionsDone;
@@ -53,6 +50,8 @@ public class year1GameManager : MonoBehaviour {
     public static int score;
 
     private bool beenClicked;
+
+    public static int emailTries = 0 ; // counts how many attempts have been made at emailing
 
     void Start()
     {
@@ -62,8 +61,6 @@ public class year1GameManager : MonoBehaviour {
         }
         beenClicked = false;
         SetRandomImage();
-        //Debug.Log(currentQuestion.image + " is " + currentQuestion.isCorrect);
-       // Debug.Log(EmailTest[0,0]);
     }
     void SetRandomImage()
     {
@@ -181,12 +178,25 @@ public class year1GameManager : MonoBehaviour {
             "<br><br>" + "This was sent from the CC-EAT Diabetes App.";
         smtpServer.Credentials = new System.Net.NetworkCredential("royalunitedhospitals@gmail.com", "Cceat123") as ICredentialsByHost;
         smtpServer.EnableSsl = true;
-        SceneManager.LoadScene("year1Results"); // reloads the scene after user clicks button         
+        //SceneManager.LoadScene("year1Results"); // reloads the scene after user clicks button         
         ServicePointManager.ServerCertificateValidationCallback =
         delegate (object s, X509Certificate certificate, X509Chain chain, SslPolicyErrors sslPolicyErrors)
         { return true; };
-        smtpServer.Send(mail);
-        Debug.Log("success");
+        try
+        {
+            smtpServer.Send(mail);
+            Debug.Log("success");
+            yearResetScore();
+            emailTries = 0;
+            SceneManager.LoadScene("yearSelection");
+        }
+        catch (SmtpFailedRecipientsException)
+        {
+            mail.Dispose();
+            emailTries++;
+            SceneManager.LoadScene("year1Results");
+        }
+        
     }
 
     public void loopThroughArray() // loops through array listing each item instead of reusing code
@@ -198,8 +208,9 @@ public class year1GameManager : MonoBehaviour {
         }
     }
 
-    public void emailerror()
+    public void yearResetScore() // score resets
     {
-        // something to go here 
+        score = 0;
+        questionsDone = 0;
     }
 }

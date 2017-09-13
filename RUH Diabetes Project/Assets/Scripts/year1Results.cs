@@ -14,6 +14,9 @@ public class year1Results : MonoBehaviour {
     [SerializeField]
     public Text resultsText;
 
+    [SerializeField]
+    public Text emailInstructions; // tells the user to enter their email 
+
     private int score;
     private int questionsDone;
 
@@ -22,11 +25,9 @@ public class year1Results : MonoBehaviour {
         score = year1GameManager.score;
         questionsDone = year1GameManager.questionsDone;
         resultsText.text = "You scored " + score.ToString() + "/" + questionsDone;
-    }
-
-    public void yearResetScore() // score resets
-    {
-        year1GameManager.score = 0;
-        year1GameManager.questionsDone = 0;
+        if (year1GameManager.emailTries > 0)
+        {
+            emailInstructions.text = "Please try again";
+        }
     }
 }
