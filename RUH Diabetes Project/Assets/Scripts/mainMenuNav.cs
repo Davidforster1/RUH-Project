@@ -13,6 +13,11 @@ public class mainMenuNav : MonoBehaviour {
         Application.Quit();
     }
 
+    public void UserStart()
+    {
+        SceneManager.LoadScene("mainMenuVideo");
+    }
+
     public void UserSelectYearMenu()
     {
         SceneManager.LoadScene("yearSelection");
