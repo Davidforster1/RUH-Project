@@ -27,7 +27,7 @@ public class year1Results : MonoBehaviour {
         resultsText.text = "You scored " + score.ToString() + "/" + questionsDone;
         if (year1GameManager.emailTries > 0)
         {
-            emailInstructions.text = "Please try again";
+            emailInstructions.text = "The email did not send. Please try again";
         }
     }
 }

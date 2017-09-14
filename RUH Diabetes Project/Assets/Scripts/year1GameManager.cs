@@ -74,9 +74,6 @@ public class year1GameManager : MonoBehaviour {
         answerList.Add(currentQuestion.isCorrect);
 
         unansweredQuestions.RemoveAt(randomImageIndex);   // removes a question once it's been answered
-
-        //Debug.Log(questionList[0]);
-        //Debug.Log(answerList[0]);
     }
 
     IEnumerator TransitionToNextQuestion()
@@ -166,23 +163,25 @@ public class year1GameManager : MonoBehaviour {
             text-align: left;
             padding: 8px;
                     }
-            td:hover {background-color: #f5f5f5}                 
+            td:hover {background-color: #f5f5f5}
+            img { width:128px;height:128px;}                 
         </style>
         </Head>" +
            "The patient's answers are listed below:" + "<br><br>" +
             "<table>" +
             "<tr>" + "<th>" + "Question" + "</th>" + "<th>" + "User Answer" + "</th>" + "<th>" + "Correct Answer" + "</th>" + "</tr>";
             loopThroughArray();
-           mail.Body += "</table>" +
-            "<br>" + "Total score: " + score +
-            "<br><br>" + "This was sent from the CC-EAT Diabetes App.";
-        smtpServer.Credentials = new System.Net.NetworkCredential("royalunitedhospitals@gmail.com", "Cceat123") as ICredentialsByHost;
+        mail.Body += "</table>" +
+         "<br>" + "Total score: " + score +
+         "<br><br>" + "This was sent from the CC-EAT Diabetes App." + "<br> <br>" +
+         "<img src = https://i.imgur.com/AAJY39X.png>";
+        smtpServer.Credentials = new NetworkCredential("royalunitedhospitals@gmail.com", "Cceat123") as ICredentialsByHost;
         smtpServer.EnableSsl = true;
         //SceneManager.LoadScene("year1Results"); // reloads the scene after user clicks button         
         ServicePointManager.ServerCertificateValidationCallback =
         delegate (object s, X509Certificate certificate, X509Chain chain, SslPolicyErrors sslPolicyErrors)
         { return true; };
-        try
+        try // tries to send mail
         {
             smtpServer.Send(mail);
             Debug.Log("success");
@@ -190,7 +189,7 @@ public class year1GameManager : MonoBehaviour {
             emailTries = 0;
             SceneManager.LoadScene("yearSelection");
         }
-        catch (SmtpFailedRecipientsException)
+        catch (SmtpFailedRecipientsException) // if it fails, reload scene and +1 to tries resulting in error message
         {
             mail.Dispose();
             emailTries++;
