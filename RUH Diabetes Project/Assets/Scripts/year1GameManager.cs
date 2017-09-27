@@ -22,28 +22,43 @@ public class year1GameManager : MonoBehaviour {
     string currentDate = System.DateTime.Now.ToString("HH:mm:ss d/M/yyyy"); // formats date/time into readable format 
 
     [SerializeField]
-    public Text scoreText;
+    private GameObject pinEntryCanvas;
 
     [SerializeField]
-    public Text resultsText;
+    private GameObject year1MenuCanvas;
 
     [SerializeField]
-    public Text foodName;
+    public Text scoreText; // current score
 
     [SerializeField]
-    AudioSource wrong;
+    public Text resultsText; // results display text
 
     [SerializeField]
+    public Text foodName; // food name text 
+
+    [SerializeField]
+    AudioSource wrong; // correct sound
+
+    [SerializeField] // incorrect sound 
     AudioSource correct;
 
     [SerializeField]
     RawImage questionImage; // The picture of food
 
     [SerializeField]
+    RawImage sadSmiley;
+
+    [SerializeField]
+    RawImage happySmiley;
+
+    [SerializeField]
     public InputField emailInput; // Where the user types in their email
 
     [SerializeField]
-    private Text emailPlaceholder;
+    public InputField emailPinInput; // Where the user types in their email
+
+    [SerializeField]
+    private Text emailPlaceholder; // placeholder text in the results scene where user enters email address
 
     [SerializeField]
     private float timeBetweenQuestions = 2f; // delay between questions 
@@ -55,6 +70,8 @@ public class year1GameManager : MonoBehaviour {
     private bool beenClicked;
 
     public static int emailTries = 0 ; // counts how many attempts have been made at emailing
+
+    public static string emailPin = "";
 
     public static string emailAddress = "Please enter your email address here:"; // variable to store user inputted email 
 
@@ -69,6 +86,14 @@ public class year1GameManager : MonoBehaviour {
         beenClicked = false;
         SetRandomImage();
     }
+
+    public void TogglePinInput() // hides main menu canvas, enables wifi warning 
+    {
+        pinEntryCanvas.SetActive(false);
+        year1MenuCanvas.SetActive(true);
+        emailPin = emailPinInput.text;
+    }
+
     void SetRandomImage()
     {
         int randomImageIndex = Random.Range(0, unansweredQuestions.Count);
@@ -112,11 +137,13 @@ public class year1GameManager : MonoBehaviour {
             if (currentQuestion.isCorrect)
             {
                 correct.Play(); // plays wrong sound
-                score++;              
+                score++;
+                questionImage.texture = happySmiley.texture;
             }
             else
             {
                 wrong.Play();
+                questionImage.texture = sadSmiley.texture;
             }
 
             StartCoroutine(TransitionToNextQuestion()); // loads new question after user selection
@@ -134,10 +161,12 @@ public class year1GameManager : MonoBehaviour {
             {
                 correct.Play(); // plays wrong sound
                 score++;
+                questionImage.texture = happySmiley.texture;
             }
             else
             {
                 wrong.Play();
+                questionImage.texture = sadSmiley.texture;
             }
 
             StartCoroutine(TransitionToNextQuestion()); // loads new question after user selection
@@ -177,6 +206,7 @@ public class year1GameManager : MonoBehaviour {
             img { width:128px;height:128px;}                 
         </style>
         </Head>" +
+                "Patient PIN: " + emailPin + "<br><br>" +
                "The patient's answers are listed below:" + "<br><br>" +
                 "<table>" +
                 "<tr>" + "<th>" + "Question" + "</th>" + "<th>" + "User Answer" + "</th>" + "<th>" + "Correct Answer" + "</th>" + "</tr>";

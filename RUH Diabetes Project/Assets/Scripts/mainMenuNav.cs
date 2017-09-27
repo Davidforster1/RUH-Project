@@ -3,6 +3,12 @@ using UnityEngine.SceneManagement;
 
 public class mainMenuNav : MonoBehaviour {
 
+    [SerializeField]
+    private GameObject wifiAlertCanvas;
+
+    [SerializeField]
+    private GameObject mainMenuCanvas;
+
     public void UserSelectPlay() // takes user back to the main menu
     {
         SceneManager.LoadScene("yearSelection"); // if questions done = all of them, load results screen
@@ -116,5 +122,11 @@ public class mainMenuNav : MonoBehaviour {
     public void UserSelectYear6()
     {
         SceneManager.LoadScene("year6Menu");
+    }
+
+    public void ToggleWifiWarning() // hides main menu canvas, enables wifi warning 
+    {
+            mainMenuCanvas.SetActive(false);
+            wifiAlertCanvas.SetActive(true);
     }
 }
