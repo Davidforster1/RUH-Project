@@ -20,7 +20,7 @@ public class year1GameManager : MonoBehaviour {
 
     private MailMessage mail = new MailMessage(); // Allows for the email to be constructed in the mail function below
     string currentDate = System.DateTime.Now.ToString("HH:mm:ss d/M/yyyy"); // formats date/time into readable format 
-    
+
     [SerializeField]
     public Text scoreText;
 
@@ -37,10 +37,13 @@ public class year1GameManager : MonoBehaviour {
     AudioSource correct;
 
     [SerializeField]
-    RawImage questionImage; // The picture of food 
+    RawImage questionImage; // The picture of food
 
     [SerializeField]
     public InputField emailInput; // Where the user types in their email
+
+    [SerializeField]
+    private Text emailPlaceholder;
 
     [SerializeField]
     private float timeBetweenQuestions = 2f; // delay between questions 
@@ -52,6 +55,10 @@ public class year1GameManager : MonoBehaviour {
     private bool beenClicked;
 
     public static int emailTries = 0 ; // counts how many attempts have been made at emailing
+
+    public static string emailAddress = "Please enter your email address here:"; // variable to store user inputted email 
+
+    public static string storedEmail = ""; // stores the email address, 
 
     void Start()
     {
@@ -140,15 +147,18 @@ public class year1GameManager : MonoBehaviour {
 
     public void year1SendMail() // Mail send function
     {
-        string emailAddress; // variable to store user inputted email 
-        emailAddress = emailInput.text; // variable becomes the email the user types in
-        mail.From = new MailAddress("royalunitedhospitals@gmail.com");
-        mail.To.Add(emailAddress);
-        SmtpClient smtpServer = new SmtpClient("smtp.gmail.com");
-        smtpServer.Port = 587;
-        mail.Subject = "CC-EAT Year One: " + currentDate;
-        mail.IsBodyHtml = true; // allows for html
-        mail.Body = @"
+           if (storedEmail != "")
+            {
+            emailInput.text = storedEmail; // inputtext becomes the stored email as it is not empty
+            }
+            emailAddress = emailInput.text; // variable becomes the email the user types in
+            mail.From = new MailAddress("royalunitedhospitals@gmail.com");
+            mail.To.Add(emailAddress);
+            SmtpClient smtpServer = new SmtpClient("smtp.gmail.com");
+            smtpServer.Port = 587;
+            mail.Subject = "CC-EAT Year One: " + currentDate;
+            mail.IsBodyHtml = true; // allows for html
+            mail.Body = @"
         <html lang=""en"">
         <head>    
         <meta content=""text/html; charset=utf-8"" http-equiv=""Content-Type"">
@@ -167,35 +177,34 @@ public class year1GameManager : MonoBehaviour {
             img { width:128px;height:128px;}                 
         </style>
         </Head>" +
-           "The patient's answers are listed below:" + "<br><br>" +
-            "<table>" +
-            "<tr>" + "<th>" + "Question" + "</th>" + "<th>" + "User Answer" + "</th>" + "<th>" + "Correct Answer" + "</th>" + "</tr>";
+               "The patient's answers are listed below:" + "<br><br>" +
+                "<table>" +
+                "<tr>" + "<th>" + "Question" + "</th>" + "<th>" + "User Answer" + "</th>" + "<th>" + "Correct Answer" + "</th>" + "</tr>";
             loopThroughArray();
-        mail.Body += "</table>" +
-         "<br>" + "Total score: " + score +
-         "<br><br>" + "This was sent from the CC-EAT Diabetes App." + "<br> <br>" +
-         "<img src = https://i.imgur.com/AAJY39X.png>";
-        smtpServer.Credentials = new NetworkCredential("royalunitedhospitals@gmail.com", "Cceat123") as ICredentialsByHost;
-        smtpServer.EnableSsl = true;
-        //SceneManager.LoadScene("year1Results"); // reloads the scene after user clicks button         
-        ServicePointManager.ServerCertificateValidationCallback =
-        delegate (object s, X509Certificate certificate, X509Chain chain, SslPolicyErrors sslPolicyErrors)
-        { return true; };
-        try // tries to send mail
-        {
-            smtpServer.Send(mail);
-            Debug.Log("success");
-            yearResetScore();
-            emailTries = 0;
-            SceneManager.LoadScene("yearSelection");
-        }
-        catch (SmtpFailedRecipientsException) // if it fails, reload scene and +1 to tries resulting in error message
-        {
-            mail.Dispose();
-            emailTries++;
-            SceneManager.LoadScene("year1Results");
-        }
-        
+            mail.Body += "</table>" +
+             "<br>" + "Total score: " + score +
+             "<br><br>" + "This was sent from the CC-EAT Diabetes App." + "<br> <br>" +
+             "<img src = https://i.imgur.com/AAJY39X.png>";
+            smtpServer.Credentials = new NetworkCredential("royalunitedhospitals@gmail.com", "Cceat123") as ICredentialsByHost;
+            smtpServer.EnableSsl = true;
+            ServicePointManager.ServerCertificateValidationCallback =
+            delegate (object s, X509Certificate certificate, X509Chain chain, SslPolicyErrors sslPolicyErrors)
+            { return true; };
+            try // tries to send mail
+            {
+                smtpServer.Send(mail);
+                Debug.Log("success");
+                storedEmail = emailAddress; // only stores email if it sends correctly
+                yearResetScore();
+                emailTries = 0;
+                SceneManager.LoadScene("yearSelection");
+            }
+            catch (SmtpFailedRecipientsException) // if it fails, reload scene and +1 to tries resulting in error message
+            {
+                mail.Dispose(); // cancels the mail sending
+                emailTries++;
+                SceneManager.LoadScene("year1Results");
+            }      
     }
 
     public void loopThroughArray() // loops through array listing each item instead of reusing code
