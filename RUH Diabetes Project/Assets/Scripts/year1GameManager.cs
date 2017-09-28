@@ -63,6 +63,9 @@ public class year1GameManager : MonoBehaviour {
     [SerializeField]
     private float timeBetweenQuestions = 2f; // delay between questions 
 
+    [SerializeField]
+    private AudioSource questionSound; // connects the question audio to the script 
+
     public static int questionsDone;
 
     public static int score;
@@ -101,6 +104,9 @@ public class year1GameManager : MonoBehaviour {
 
         questionImage.texture = currentQuestion.image; // sets the image to the current question image 
         foodName.text = currentQuestion.foodName;
+        questionSound.clip = currentQuestion.questionAudio; // assigns audio clip to current question
+        questionSound.Play(); // plays the current question audio
+
 
         questionList.Add(currentQuestion.foodName);
         answerList.Add(currentQuestion.isCorrect);
@@ -250,5 +256,10 @@ public class year1GameManager : MonoBehaviour {
     {
         score = 0;
         questionsDone = 0;
+    }
+
+    public void replayQuestionAudio()
+    {
+        questionSound.Play(); // plays the current question audio
     }
 }

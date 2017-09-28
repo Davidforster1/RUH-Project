@@ -92,7 +92,7 @@ f79f013e7f1900a8a455c6c9a6b98ac5 Assembly-CSharp.dll:.year5GameManager3
 6b16db07dc4394c6f50dae7fb9cce964 Assembly-CSharp.dll:MaterialUI.SwitchConfig
 05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:MaterialUI.MaterialGlobals
 2d1ee304663f274f18c8a8447e9f8656 Assembly-CSharp.dll:.year5GameManager
-05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:.mainMenuNav
+a0a8f5292ff538e8d6e955d806ff3131 Assembly-CSharp.dll:.mainMenuNav
 05524b8f659e7bfe5756d1335fec24ba UnityEngine.Timeline.dll:UnityEngine.Timeline.ActivationPlayableAsset
 cac917711d0e84d412d48737b6fc9ae7 UnityEngine.Timeline.dll:UnityEngine.Timeline.ActivationTrack
 706b890efe0a474d76b40e459ddb3e76 UnityEngine.Timeline.dll:UnityEngine.Timeline.AnimationPlayableAsset
@@ -126,7 +126,7 @@ f2386e2dcd5bd5e737791575edc923df Assembly-CSharp.dll:MaterialUI.DialogBoxConfig
 05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:MaterialUI.Anim
 1eb8d78ef20aae2caff1d178b7db0040 Assembly-CSharp.dll:MaterialUI.ColorCopier
 84fe9ce97279b8b56498113f8e12dc3b Assembly-CSharp.dll:.year2Results
-6b0807e640a73c1e71a2b9e692069d25 Assembly-CSharp.dll:.year1Results
+59d1afa47552ace405195b4aae5c6f2c Assembly-CSharp.dll:.year1Results
 bc68edb0af574bf79f9550ead8ebae5c UnityEngine.HoloLens.dll:UnityEngine.Audio.AudioSpatializerMicrosoft
 05524b8f659e7bfe5756d1335fec24ba UnityEngine.HoloLens.dll:UnityEngine.EventSystems.HoloLensInput
 463516d5b5fe8e67a0a24c48f2095b04 UnityEngine.HoloLens.dll:UnityEngine.EventSystems.HoloLensInputModule
@@ -180,7 +180,7 @@ c2275a8bfbb9f9942cad75ecdfded41d UnityEngine.HoloLens.dll:UnityEngine.VR.WSA.Spa
 67474544182acae382d4a902ea311f87 Assembly-CSharp.dll:.year2GameManager
 6ced5e30b46aade805ee2cd388523322 Assembly-CSharp.dll:MaterialUI.CheckBoxToggler
 855e6c2cc83470f708608120f850e5d7 Assembly-CSharp.dll:MaterialUI.ScreenConfig
-5e54e3720e6d2453ba4b69397e1238fd Assembly-CSharp.dll:.year1GameManager
+feb62736fd547cf44639ab98a25554fd Assembly-CSharp.dll:.year1GameManager
 84fe9ce97279b8b56498113f8e12dc3b Assembly-CSharp.dll:.year4Results
 725f39fbf34790ae025ddeadf288f717 Assembly-CSharp.dll:.ToggleTextChanger
 8f9ca3035a51ae9fa67a3f8ceed38ca2 Assembly-CSharp.dll:MaterialUI.ShadowConfig
