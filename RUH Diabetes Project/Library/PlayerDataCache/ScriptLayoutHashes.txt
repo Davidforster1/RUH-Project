@@ -180,7 +180,7 @@ c2275a8bfbb9f9942cad75ecdfded41d UnityEngine.HoloLens.dll:UnityEngine.VR.WSA.Spa
 67474544182acae382d4a902ea311f87 Assembly-CSharp.dll:.year2GameManager
 6ced5e30b46aade805ee2cd388523322 Assembly-CSharp.dll:MaterialUI.CheckBoxToggler
 855e6c2cc83470f708608120f850e5d7 Assembly-CSharp.dll:MaterialUI.ScreenConfig
-feb62736fd547cf44639ab98a25554fd Assembly-CSharp.dll:.year1GameManager
+276bac08465aa936d2168b1eb114fae1 Assembly-CSharp.dll:.year1GameManager
 84fe9ce97279b8b56498113f8e12dc3b Assembly-CSharp.dll:.year4Results
 725f39fbf34790ae025ddeadf288f717 Assembly-CSharp.dll:.ToggleTextChanger
 8f9ca3035a51ae9fa67a3f8ceed38ca2 Assembly-CSharp.dll:MaterialUI.ShadowConfig
