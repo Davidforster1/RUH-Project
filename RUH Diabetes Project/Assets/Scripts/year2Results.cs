@@ -13,9 +13,6 @@ public class year2Results : MonoBehaviour
     [SerializeField]
     private Text emailPlaceholder; // email entry placeholder text 
 
-    [SerializeField]
-    public InputField emailInput; // Where the user types in their email
-
     public static int score;
     private int questionsDone;
 
