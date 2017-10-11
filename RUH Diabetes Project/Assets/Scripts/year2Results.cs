@@ -13,12 +13,16 @@ public class year2Results : MonoBehaviour
     [SerializeField]
     private Text emailPlaceholder; // email entry placeholder text 
 
+    [SerializeField]
+    public InputField emailInput; // Where the user types in their email
+
     public static int score;
     private int questionsDone;
 
     // Use this for initialization - Stores the values 
     void Start()
     {
+        emailPlaceholder.text = year1GameManager.emailAddress; // placeholder in the email input becomes the last entered email
         score = year2GameManager.score + year2GameManager2.score2;
         questionsDone = year2GameManager.questionsDoneOne + year2GameManager2.questionsDoneTwo;
         resultsText.text = "You scored " + score.ToString() + "/" + questionsDone;
