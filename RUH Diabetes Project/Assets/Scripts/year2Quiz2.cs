@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class year2Quiz2
 {
     public string question;
+    public string Answer;
 
     public Texture image;
     public Texture image2;

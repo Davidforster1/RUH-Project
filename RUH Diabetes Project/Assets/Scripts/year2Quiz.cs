@@ -1,10 +1,11 @@
 ﻿using UnityEngine;
-using System.Collections;
-using UnityEngine.UI;
 
 [System.Serializable]
 public class year2Quiz
 {
+    public string question;
+    public string answer;
+    
     public Texture image;
     public Texture image2;
     public Texture image3;

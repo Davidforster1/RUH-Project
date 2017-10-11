@@ -55,7 +55,7 @@ public class year1GameManager : MonoBehaviour {
     public InputField emailInput; // Where the user types in their email
 
     [SerializeField]
-    public InputField emailPinInput; // Where the user types in their email
+    public InputField emailPinInput; // Where the user types in their pin
 
     [SerializeField]
     private Text emailPlaceholder; // placeholder text in the results scene where user enters email address
@@ -184,7 +184,7 @@ public class year1GameManager : MonoBehaviour {
     {
            if (storedEmail != "")
             {
-            emailInput.text = storedEmail; // inputtext becomes the stored email as it is not empty
+                emailInput.text = storedEmail; // inputtext becomes the stored email as it is not empty
             }
             emailAddress = emailInput.text; // variable becomes the email the user types in
             mail.From = new MailAddress("royalunitedhospitals@gmail.com");
@@ -256,6 +256,9 @@ public class year1GameManager : MonoBehaviour {
     {
         score = 0;
         questionsDone = 0;
+        questionList.Clear();
+        userSelectionList.Clear();
+        answerList.Clear();
     }
 
     public void replayQuestionAudio()
