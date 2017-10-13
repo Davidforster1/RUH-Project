@@ -1,8 +1,8 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 
-public class year1Results : MonoBehaviour {
-
+public class year1Results : MonoBehaviour
+{
     [SerializeField]
     public Text resultsText;
 
@@ -16,7 +16,7 @@ public class year1Results : MonoBehaviour {
     private int questionsDone;
 
     // Use this for initialization - Stores the values 
-    void Start ()
+    void Start()
     {
         emailPlaceholder.text = year1GameManager.emailAddress; // placeholder in the email input becomes the last entered email
         score = year1GameManager.score; 

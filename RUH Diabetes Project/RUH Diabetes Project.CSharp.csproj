@@ -130,36 +130,25 @@
     <Compile Include="Assets\Scripts\mainMenuNav.cs" />
     <Compile Include="Assets\Scripts\mainMenuVideo.cs" />
     <Compile Include="Assets\Scripts\year1GameManager.cs" />
-    <Compile Include="Assets\Scripts\year1Quiz.cs" />
     <Compile Include="Assets\Scripts\year1Results.cs" />
     <Compile Include="Assets\Scripts\year2GameManager.cs" />
     <Compile Include="Assets\Scripts\year2GameManager2.cs" />
-    <Compile Include="Assets\Scripts\year2Quiz.cs" />
-    <Compile Include="Assets\Scripts\year2Quiz2.cs" />
     <Compile Include="Assets\Scripts\year2Results.cs" />
     <Compile Include="Assets\Scripts\year3GameManager.cs" />
-    <Compile Include="Assets\Scripts\year3Quiz.cs" />
     <Compile Include="Assets\Scripts\year3Results.cs" />
     <Compile Include="Assets\Scripts\year4GameManager.cs" />
-    <Compile Include="Assets\Scripts\year4Quiz.cs" />
     <Compile Include="Assets\Scripts\year4Results.cs" />
     <Compile Include="Assets\Scripts\year5ActivityFructoseLabel.cs" />
     <Compile Include="Assets\Scripts\year5GameManager.cs" />
     <Compile Include="Assets\Scripts\year5GameManager2.cs" />
     <Compile Include="Assets\Scripts\year5GameManager3.cs" />
-    <Compile Include="Assets\Scripts\year5Quiz.cs" />
-    <Compile Include="Assets\Scripts\year5Quiz2.cs" />
-    <Compile Include="Assets\Scripts\year5Quiz3.cs" />
     <Compile Include="Assets\Scripts\year5Results.cs" />
     <Compile Include="Assets\Scripts\year6GameManager.cs" />
     <Compile Include="Assets\Scripts\year6GameManager2.cs" />
     <Compile Include="Assets\Scripts\year6GameManager3.cs" />
     <Compile Include="Assets\Scripts\year6GameManager4.cs" />
-    <Compile Include="Assets\Scripts\year6Quiz.cs" />
-    <Compile Include="Assets\Scripts\year6Quiz2.cs" />
-    <Compile Include="Assets\Scripts\year6Quiz3.cs" />
-    <Compile Include="Assets\Scripts\year6Quiz4.cs" />
     <Compile Include="Assets\Scripts\year6Results.cs" />
+    <Compile Include="Assets\Scripts\yearQuiz.cs" />
     <Compile Include="Assets\SendMail.cs" />
   </ItemGroup>
   <ItemGroup>

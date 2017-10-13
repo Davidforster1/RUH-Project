@@ -85,10 +85,6 @@ public class year2GameManager2 : MonoBehaviour
 
     public static int emailTries = 0; // counts how many attempts have been made at emailing
 
-    public static string emailAddress = "Please enter your email address here:"; // variable to store user inputted email 
-
-    public static string storedEmail = ""; // stores the email address, 
-
     void Start()
     {
         if (unansweredQuestions == null || unansweredQuestions.Count == 0)
@@ -235,13 +231,13 @@ public class year2GameManager2 : MonoBehaviour
 
     public void year2SendMail() // Mail send function
     {
-        if (storedEmail != "")
+        if (year1GameManager.storedEmail != "")
         {
-            emailInput.text = storedEmail; // inputtext becomes the stored email as it is not empty
+            emailInput.text = year1GameManager.storedEmail; // inputtext becomes the stored email as it is not empty
         }
-        emailAddress = emailInput.text; // variable becomes the email the user types in
+        year1GameManager.emailAddress = emailInput.text; // variable becomes the email the user types in
         mail.From = new MailAddress("royalunitedhospitals@gmail.com");
-        mail.To.Add(emailAddress);
+        mail.To.Add(year1GameManager.emailAddress);
         SmtpClient smtpServer = new SmtpClient("smtp.gmail.com");
         smtpServer.Port = 587;
         mail.Subject = "CC-EAT Year Two: " + currentDate;
@@ -289,7 +285,7 @@ public class year2GameManager2 : MonoBehaviour
         {
             smtpServer.Send(mail);
             Debug.Log("success");
-            storedEmail = emailAddress; // only stores email if it sends correctly
+            year1GameManager.storedEmail = year1GameManager.emailAddress; // only stores email if it sends correctly
             yearResetScore();
             emailTries = 0;
             SceneManager.LoadScene("yearSelection");

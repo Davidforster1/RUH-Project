@@ -46,10 +46,10 @@ public class year1GameManager : MonoBehaviour {
     RawImage questionImage; // The picture of food
 
     [SerializeField]
-    RawImage sadSmiley;
+    RawImage sadSmiley; // happy smiley face on answer 
 
     [SerializeField]
-    RawImage happySmiley;
+    RawImage happySmiley; // sad smiley face on answer 
 
     [SerializeField]
     public InputField emailInput; // Where the user types in their email
