@@ -213,7 +213,7 @@ public class year4GameManager : MonoBehaviour {
     {
         for (int i = 0; i < 12;)
         {
-            mail.Body += "<tr>" + "<td>" + questionList[i] + "</td>" + "<td>" + userSelectionList[i] + "</td>" + "<td>" + answerList[i] + "</td>" + "</tr>";
+            mail.Body += "<tr>" + "<td>" + questionList[i] + "</td>" + "<td>" + userSelectionList[i] + "g" + "</td>" + "<td>" + answerList[i] + "g" + "</td>" + "</tr>";
             i++;
         }
     }
