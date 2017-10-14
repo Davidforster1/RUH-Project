@@ -105,9 +105,16 @@ public class year5Quiz2
 [System.Serializable]
 public class year5Quiz3
 {
+    public string question;
+    public string Answer;
+
     public Texture image;
+
     public bool isCorrect;
-    public string value;
+    public bool isCorrect2;
+    public bool isCorrect3;
+    public bool isCorrect4;
+    public bool isCorrect5;
 }
 
 [System.Serializable]

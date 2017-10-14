@@ -84,7 +84,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\lineDrawing.cs" />
     <Compile Include="Assets\MaterialUI\Examples\Scripts\04 - RadioButton\Example04.cs" />
     <Compile Include="Assets\MaterialUI\Examples\Scripts\05 - Sliders\Example05.cs" />
     <Compile Include="Assets\MaterialUI\Scripts\Anim.cs" />
@@ -138,7 +137,6 @@
     <Compile Include="Assets\Scripts\year3Results.cs" />
     <Compile Include="Assets\Scripts\year4GameManager.cs" />
     <Compile Include="Assets\Scripts\year4Results.cs" />
-    <Compile Include="Assets\Scripts\year5ActivityFructoseLabel.cs" />
     <Compile Include="Assets\Scripts\year5GameManager.cs" />
     <Compile Include="Assets\Scripts\year5GameManager2.cs" />
     <Compile Include="Assets\Scripts\year5GameManager3.cs" />
@@ -149,7 +147,6 @@
     <Compile Include="Assets\Scripts\year6GameManager4.cs" />
     <Compile Include="Assets\Scripts\year6Results.cs" />
     <Compile Include="Assets\Scripts\yearQuiz.cs" />
-    <Compile Include="Assets\SendMail.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Images\Year 2\Year 2 Image Links.txt" />

@@ -3,7 +3,6 @@ using UnityEngine.UI;
 
 public class year2Results : MonoBehaviour
 {
-
     [SerializeField]
     public Text resultsText;
 

@@ -143,7 +143,6 @@ public class year2GameManager2 : MonoBehaviour
         {
             beenClicked = true;
             userSelectionListYear2Part2.Add(currentQuestion.imageLabel);
-            // Button click logic here
             if (currentQuestion.isCorrect)
             {
                 correct.Play(); // plays wrong sound

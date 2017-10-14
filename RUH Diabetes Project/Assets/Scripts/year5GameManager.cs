@@ -19,8 +19,14 @@ public class year5GameManager : MonoBehaviour
     public static List<string> answerListYear5Part1 = new List<string>(); // answers list
     public static List<string> userSelectionListYear5Part1 = new List<string>(); // user selections list
 
-    private MailMessage mail = new MailMessage(); // Allows for the email to be constructed in the mail function below
-    string currentDate = System.DateTime.Now.ToString("HH:mm:ss d/M/yyyy"); // formats date/time into readable format 
+    [SerializeField]
+    private GameObject pinEntryCanvas;
+
+    [SerializeField]
+    private GameObject year5MenuCanvas;
+
+    [SerializeField]
+    public InputField emailPinInput; // Where the user types in their pin
 
     [SerializeField]
     AudioSource wrong;
@@ -61,6 +67,8 @@ public class year5GameManager : MonoBehaviour
 
     private bool beenClicked;
 
+    public static string emailPin = ""; // stores the user pin number
+
     void Start()
     {
         if (unansweredQuestions == null || unansweredQuestions.Count == 0)
@@ -68,6 +76,13 @@ public class year5GameManager : MonoBehaviour
             unansweredQuestions = imagePanel.ToList<year5Quiz>();
         }
         SetRandomImage();
+    }
+
+    public void TogglePinInput() // hides main menu canvas, enables wifi warning 
+    {
+        pinEntryCanvas.SetActive(false);
+        year5MenuCanvas.SetActive(true);
+        emailPin = emailPinInput.text;
     }
 
     void SetRandomImage()
@@ -79,7 +94,7 @@ public class year5GameManager : MonoBehaviour
         unansweredQuestions.RemoveAt(randomImageIndex);   // removes a question once it's been answered
 
         questionListYear5Part1.Add(currentQuestion.question); // populates the list of questions 
-        questionListYear5Part1.Add(currentQuestion.Answer); // populates the list of correct answers
+        answerListYear5Part1.Add(currentQuestion.Answer); // populates the list of correct answers
     }
 
     IEnumerator TransitionToNextQuestion()

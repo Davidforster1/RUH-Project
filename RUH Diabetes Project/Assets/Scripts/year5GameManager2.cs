@@ -11,6 +11,10 @@ public class year5GameManager2 : MonoBehaviour
     private static List<year5Quiz2> unansweredQuestions;
     private year5Quiz2 currentQuestion;
 
+    public static List<string> questionListYear5Part2 = new List<string>(); // questions list
+    public static List<string> answerListYear5Part2 = new List<string>(); // answers list
+    public static List<string> userSelectionListYear5Part2 = new List<string>(); // user selections list
+
     [SerializeField]
     public Text resultsText;
 
@@ -25,6 +29,15 @@ public class year5GameManager2 : MonoBehaviour
 
     [SerializeField]
     public Text carbohydrateAnswer;
+
+    [SerializeField]
+    RawImage sadSmiley;
+
+    [SerializeField]
+    RawImage happySmiley;
+
+    [SerializeField]
+    RawImage questionImage;
 
     [SerializeField]
     private float timeBetweenQuestions = 2f; // delay between questions 
@@ -43,7 +56,6 @@ public class year5GameManager2 : MonoBehaviour
         }
         beenClicked = false;
         SetRandomQuestion();
-        //Debug.Log(currentQuestion.image + " is " + currentQuestion.isCorrect);
     }
     void SetRandomQuestion()
     {
@@ -51,6 +63,9 @@ public class year5GameManager2 : MonoBehaviour
         currentQuestion = unansweredQuestions[randomQuestionIndex];
 
         question.text = currentQuestion.question;
+
+        questionListYear5Part2.Add(currentQuestion.question); // populates the list of questions 
+        answerListYear5Part2.Add(currentQuestion.carbohydrateAnswer); // populates the list of correct answers
 
         unansweredQuestions.RemoveAt(randomQuestionIndex);   // removes a question once it's been answered
     }
@@ -65,6 +80,9 @@ public class year5GameManager2 : MonoBehaviour
 
         if (questionsDoneTwo == 1)
         {
+            questionListYear5Part2.ToArray(); // sets all the lists to arrays for email format
+            answerListYear5Part2.ToArray();
+            userSelectionListYear5Part2.ToArray();
             SceneManager.LoadScene("year5Menu3"); // if questions done = all of them, load results screen
         }
 
@@ -76,15 +94,17 @@ public class year5GameManager2 : MonoBehaviour
         if (!beenClicked)
         {
             beenClicked = true;
-            // Button click logic here
+            userSelectionListYear5Part2.Add(carbohydrateAnswer.text + "g");
             if (carbohydrateAnswer.text == currentQuestion.carbohydrateAnswer)
             {
                 correct.Play(); // plays wrong sound
+                questionImage.texture = happySmiley.texture;
                 score2++;
             }
             else
             {
                 wrong.Play();
+                questionImage.texture = sadSmiley.texture;
             }
 
             StartCoroutine(TransitionToNextQuestion()); // loads new question after user selection

@@ -180,6 +180,7 @@ public class year4GameManager : MonoBehaviour {
         </Head>" +
             "Patient PIN: " + emailPin + "<br><br>" +
            "The patient's answers are listed below:" + "<br><br>" +
+           "<H2> Year 4 Activity 1 </H2>" +
             "<table>" +
             "<tr>" + "<th>" + "Question" + "</th>" + "<th>" + "User Answer" + "</th>" + "<th>" + "Correct Answer" + "</th>" + "</tr>";
         loopThroughArray();
