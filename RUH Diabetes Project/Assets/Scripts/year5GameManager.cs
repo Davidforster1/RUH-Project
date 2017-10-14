@@ -3,14 +3,24 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine.UI;
-using UnityEngine.EventSystems;
 using UnityEngine.SceneManagement;
+using System.Net.Mail;
+using System.Net.Security;
+using System.Security.Cryptography.X509Certificates;
+using System.Net;
 
 public class year5GameManager : MonoBehaviour
 {
     public year5Quiz[] imagePanel;
     private static List<year5Quiz> unansweredQuestions;
     private year5Quiz currentQuestion;
+
+    public static List<string> questionListYear5Part1 = new List<string>(); // questions list
+    public static List<string> answerListYear5Part1 = new List<string>(); // answers list
+    public static List<string> userSelectionListYear5Part1 = new List<string>(); // user selections list
+
+    private MailMessage mail = new MailMessage(); // Allows for the email to be constructed in the mail function below
+    string currentDate = System.DateTime.Now.ToString("HH:mm:ss d/M/yyyy"); // formats date/time into readable format 
 
     [SerializeField]
     AudioSource wrong;
@@ -19,25 +29,37 @@ public class year5GameManager : MonoBehaviour
     AudioSource correct;
 
     [SerializeField]
+    Text answer1;
+
+    [SerializeField]
+    Text answer2;
+
+    [SerializeField]
+    Text answer3;
+
+    [SerializeField]
+    Text answer4;
+
+    [SerializeField]
+    Text answer5;
+
+    [SerializeField]
     RawImage questionImage; // The picture of food
 
     [SerializeField]
     private float timeBetweenQuestions = 2f; // delay between questions 
 
+    [SerializeField]
+    RawImage sadSmiley;
+
+    [SerializeField]
+    RawImage happySmiley;
+
     public static int questionsDone;
 
     public static int score;
 
-    private bool lineConnected;
-
-    //reference to LineRenderer component
-    private LineRenderer line;
-    //car to store touch position on the screen
-    private Vector3 touchPos;
-    //assign a material to the Line Renderer in the Inspector
-    public Material material;
-    //number of lines drawn
-    private int currLines = 0;
+    private bool beenClicked;
 
     void Start()
     {
@@ -45,9 +67,7 @@ public class year5GameManager : MonoBehaviour
         {
             unansweredQuestions = imagePanel.ToList<year5Quiz>();
         }
-        lineConnected = false;
         SetRandomImage();
-        //Debug.Log(currentQuestion.image + " is " + currentQuestion.isCorrect);
     }
 
     void SetRandomImage()
@@ -57,6 +77,9 @@ public class year5GameManager : MonoBehaviour
 
         questionImage.texture = currentQuestion.image; // sets the image to the current question image 
         unansweredQuestions.RemoveAt(randomImageIndex);   // removes a question once it's been answered
+
+        questionListYear5Part1.Add(currentQuestion.question); // populates the list of questions 
+        questionListYear5Part1.Add(currentQuestion.Answer); // populates the list of correct answers
     }
 
     IEnumerator TransitionToNextQuestion()
@@ -69,137 +92,122 @@ public class year5GameManager : MonoBehaviour
 
         if (questionsDone == 4)
         {
+            questionListYear5Part1.ToArray(); // sets all the lists to arrays for email format
+            answerListYear5Part1.ToArray();
+            userSelectionListYear5Part1.ToArray();
             SceneManager.LoadScene("year5Activity2"); // if questions done = all of them, load results screen
         }
 
         questionsDone++;
     }
 
-
-    void Update()
+    public void firstAnswer()
     {
-        if (Input.touchCount == 0) return;
-        Touch touch = Input.GetTouch(0);
-        //Create new Line on touch 
-
-        if (touch.phase == TouchPhase.Ended && line)
+        if (!beenClicked)
         {
-            PointerEventData pointer = new PointerEventData(EventSystem.current);
-            pointer.position = Input.mousePosition;
-
-            List<RaycastResult> raycastResults = new List<RaycastResult>();
-            EventSystem.current.RaycastAll(pointer, raycastResults);
-
-            if (raycastResults.Count > 0)
-            {
-                foreach (var go in raycastResults)
-                {
-                    // checks to see if line collides with the correct answer
-                    if (currentQuestion.value == go.gameObject.name)
-                    {
-                        userSelectTrue();
-                    }
-                    else
-                    {
-                        userSelectFalse();
-                    }
-
-                }
-            }
-        }
-
-		if (touch.phase == TouchPhase.Began) {   
-				//check if there is no line renderer created
-			if (line == null) {
-					//create the line
-					createLine ();
-				}
-
-				//get the touch position
-				touchPos = Camera.main.ScreenToWorldPoint (Input.mousePosition);
-				//set the z co ordinate to 0 as we are only interested in the xy axes
-				touchPos.z = 0;
-				//set the start point and end point of the line renderer
-				line.SetPosition (0, touchPos);
-				line.SetPosition (1, touchPos);
-
-		}
-        //if line renderer exists and touch stops
-        else if (touch.phase == TouchPhase.Ended && line)
-        {
-            
-            touchPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-            touchPos.z = 0;
-            //set the end point of the line renderer to current touch position
-            line.SetPosition(1, touchPos);
-            //set line as null once the line is created
-            line = null;
-            currLines++;
-           
-        }
-        //if touch is moved, line creates
-        else if (touch.phase == TouchPhase.Moved && line)
-        {
-
-            touchPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-            touchPos.z = 0;
-            //set the end position as current position but dont set line as null as the finger is not lifted
-            line.SetPosition(1, touchPos);
-
-        }
-    }
-
-    //method to create line
-    private void createLine()
-    {
-        //create a new empty gameobject and line renderer component
-        line = new GameObject("Line" + currLines).AddComponent<LineRenderer>();
-        //assign the material to the line
-		line.material = material;
-        //set the number of points to the line
-        line.SetVertexCount(2);
-        //set the width
-        line.SetWidth(0.10f, 0.10f);
-        //render line to the world origin and not to the object's position
-        line.useWorldSpace = true;
-
-    }
-
-    public void userSelectTrue()
-    {
-        if (!lineConnected)
-        {
-            lineConnected = true;
-            // Button click logic here
+            beenClicked = true;
+            userSelectionListYear5Part1.Add(answer1.text);
             if (currentQuestion.isCorrect)
             {
                 correct.Play(); // plays wrong sound
+                questionImage.texture = happySmiley.texture;
                 score++;
             }
             else
             {
                 wrong.Play();
+                questionImage.texture = sadSmiley.texture;
             }
 
             StartCoroutine(TransitionToNextQuestion()); // loads new question after user selection
         }
     }
 
-    public void userSelectFalse()
+    public void secondAnswer()
     {
-        if (!lineConnected)
+        if (!beenClicked)
         {
-            lineConnected = true;
-
-            if (!currentQuestion.isCorrect)
+            beenClicked = true;
+            userSelectionListYear5Part1.Add(answer2.text);
+            if (currentQuestion.isCorrect2)
             {
                 correct.Play(); // plays wrong sound
+                questionImage.texture = happySmiley.texture;
                 score++;
-
             }
             else
             {
                 wrong.Play();
+                questionImage.texture = sadSmiley.texture;
+            }
+
+            StartCoroutine(TransitionToNextQuestion()); // loads new question after user selection
+
+        }
+    }
+
+    public void thirdAnswer()
+    {
+        if (!beenClicked)
+        {
+            beenClicked = true;
+            userSelectionListYear5Part1.Add(answer3.text);
+            if (currentQuestion.isCorrect3)
+            {
+                correct.Play(); // plays wrong sound
+                questionImage.texture = happySmiley.texture;
+                score++;
+            }
+            else
+            {
+                wrong.Play();
+                questionImage.texture = sadSmiley.texture;
+            }
+
+            StartCoroutine(TransitionToNextQuestion()); // loads new question after user selection
+
+        }
+    }
+
+    public void fourthAnswer()
+    {
+        if (!beenClicked)
+        {
+            beenClicked = true;
+            userSelectionListYear5Part1.Add(answer4.text);
+            if (currentQuestion.isCorrect4)
+            {
+                correct.Play(); // plays wrong sound
+                questionImage.texture = happySmiley.texture;
+                score++;
+            }
+            else
+            {
+                wrong.Play();
+                questionImage.texture = sadSmiley.texture;
+            }
+
+            StartCoroutine(TransitionToNextQuestion()); // loads new question after user selection
+
+        }
+    }
+
+    public void FifthAnswer()
+    {
+        if (!beenClicked)
+        {
+            beenClicked = true;
+            userSelectionListYear5Part1.Add(answer5.text);
+            if (currentQuestion.isCorrect5)
+            {
+                correct.Play(); // plays wrong sound
+                questionImage.texture = happySmiley.texture;
+                score++;
+            }
+            else
+            {
+                wrong.Play();
+                questionImage.texture = sadSmiley.texture;
             }
 
             StartCoroutine(TransitionToNextQuestion()); // loads new question after user selection
