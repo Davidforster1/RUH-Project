@@ -147,6 +147,7 @@ public class year6Quiz3
     public Texture foodImage;
     public int minAnswer;
     public int maxAnswer;
+    public string answerRange;
 }
 
 [System.Serializable]

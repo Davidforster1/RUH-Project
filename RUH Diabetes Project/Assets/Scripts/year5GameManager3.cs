@@ -9,7 +9,6 @@ using System.Net.Security;
 using System.Security.Cryptography.X509Certificates;
 using System.Net;
 
-
 public class year5GameManager3 : MonoBehaviour
 {
     public year5Quiz3[] imagePanel;

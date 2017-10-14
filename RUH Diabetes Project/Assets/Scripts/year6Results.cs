@@ -8,28 +8,28 @@ public class year6Results : MonoBehaviour
     [SerializeField]
     public Text resultsText;
 
-    private int score;
-    private int questionsDone;
+    [SerializeField]
+    public Text emailInstructions; // tells the user to enter their email
 
+    [SerializeField]
+    private Text emailPlaceholder; // email entry placeholder text 
+
+    public static int score;
+    private int questionsDone;
 
     // Use this for initialization - Stores the values 
     void Start()
     {
+        emailPlaceholder.text = year1GameManager.emailAddress; // placeholder in the email input becomes the last entered email
         score = year6GameManager.score + year6GameManager2.score2 + year6GameManager3.score3 + +year6GameManager4.score4;
         questionsDone = year6GameManager.questionsDone + year6GameManager2.questionsDoneTwo + +year6GameManager3.questionsDoneThree + year6GameManager4.questionsDoneFour;
         resultsText.text = "You scored " + score.ToString() + "/" + questionsDone;
-    }
 
-    public void yearResetScore()
-    {
-        year6GameManager.score = 0;
-        year6GameManager.questionsDone = 0;
-        year6GameManager2.score2 = 0;
-        year6GameManager2.questionsDoneTwo = 0;
-        year6GameManager3.score3 = 0;
-        year6GameManager3.questionsDoneThree = 0;
-        year6GameManager4.score4 = 0;
-        year6GameManager4.questionsDoneFour = 0;
+        if (year6GameManager4.emailTries > 0) // if more than 1 unsuccessful email, the instructions text becomes this 
+        {
+            emailInstructions.text = "The email did not send. Please try again";
+            emailPlaceholder.text = "Please enter your email address here:";
+        }
     }
 
 }

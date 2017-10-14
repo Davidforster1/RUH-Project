@@ -7,10 +7,22 @@ using UnityEngine.SceneManagement;
 
 public class year6GameManager : MonoBehaviour
 {
-
     public year6Quiz[] imagePanel;
     private static List<year6Quiz> unansweredQuestions;
     private year6Quiz currentQuestion;
+
+    public static List<string> questionListYear6Part1 = new List<string>(); // questions list
+    public static List<string> answerListYear6Part1 = new List<string>(); // answers list
+    public static List<string> userSelectionListYear6Part1 = new List<string>(); // user selections list
+
+    [SerializeField]
+    private GameObject pinEntryCanvas;
+
+    [SerializeField]
+    private GameObject year6MenuCanvas;
+
+    [SerializeField]
+    public InputField emailPinInput; // Where the user types in their pin
 
     [SerializeField]
     public Text scoreText;
@@ -31,6 +43,12 @@ public class year6GameManager : MonoBehaviour
     Text foodnameOne;
 
     [SerializeField]
+    RawImage sadSmiley;
+
+    [SerializeField]
+    RawImage happySmiley;
+
+    [SerializeField]
     private float timeBetweenQuestions = 2f; // delay between questions 
 
     public static int questionsDone;
@@ -38,6 +56,8 @@ public class year6GameManager : MonoBehaviour
     public static int score;
 
     private bool beenClicked;
+
+    public static string emailPin = ""; // stores the user pin number
 
     private int radioValue = 0;
 
@@ -49,8 +69,15 @@ public class year6GameManager : MonoBehaviour
         }
         beenClicked = false;
         SetRandomImage();
-        //Debug.Log(currentQuestion.image + " is " + currentQuestion.isCorrect);
     }
+
+    public void TogglePinInput() // hides main menu canvas, enables wifi warning 
+    {
+        pinEntryCanvas.SetActive(false);
+        year6MenuCanvas.SetActive(true);
+        emailPin = emailPinInput.text;
+    }
+
     void SetRandomImage()
     {
         int randomImageIndex = Random.Range(0, unansweredQuestions.Count);
@@ -58,8 +85,10 @@ public class year6GameManager : MonoBehaviour
 
         questionImage.texture = currentQuestion.image;
         foodnameOne.text = currentQuestion.imageLabel;
-        
-    
+
+        questionListYear6Part1.Add(currentQuestion.question); // populates the list of questions 
+        answerListYear6Part1.Add(currentQuestion.carbohydrateAnswer); // populates the list of correct answers
+
         unansweredQuestions.RemoveAt(randomImageIndex);   // removes a question once it's been answered
     }
 
@@ -73,6 +102,9 @@ public class year6GameManager : MonoBehaviour
 
         if (questionsDone == 5)
         {
+            questionListYear6Part1.ToArray(); // sets all the lists to arrays for email format
+            answerListYear6Part1.ToArray();
+            userSelectionListYear6Part1.ToArray();
             SceneManager.LoadScene("year6Menu2"); // if questions done = all of them, load results screen
         }
 
@@ -131,15 +163,17 @@ public class year6GameManager : MonoBehaviour
         if (!beenClicked)
         {
             beenClicked = true;
-            // Button click logic here
+            userSelectionListYear6Part1.Add("Glucose");
             if (currentQuestion.isCorrect)
             {
                 correct.Play(); // plays wrong sound
+                questionImage.texture = happySmiley.texture;
                 score++;
             }
             else
             {
                 wrong.Play();
+                questionImage.texture = sadSmiley.texture;
             }
 
             StartCoroutine(TransitionToNextQuestion()); // loads new question after user selection
@@ -151,15 +185,17 @@ public class year6GameManager : MonoBehaviour
         if (!beenClicked)
         {
             beenClicked = true;
-
+            userSelectionListYear6Part1.Add("Lactose");
             if (currentQuestion.isCorrect2)
             {
                 correct.Play(); // plays wrong sound
+                questionImage.texture = happySmiley.texture;
                 score++;
             }
             else
             {
                 wrong.Play();
+                questionImage.texture = sadSmiley.texture;
             }
 
             StartCoroutine(TransitionToNextQuestion()); // loads new question after user selection
@@ -171,15 +207,17 @@ public class year6GameManager : MonoBehaviour
         if (!beenClicked)
         {
             beenClicked = true;
-
+            userSelectionListYear6Part1.Add("Sugar");
             if (currentQuestion.isCorrect3)
             {
                 correct.Play(); // plays wrong sound
+                questionImage.texture = happySmiley.texture;
                 score++;
             }
             else
             {
                 wrong.Play();
+                questionImage.texture = sadSmiley.texture;
             }
 
             StartCoroutine(TransitionToNextQuestion()); // loads new question after user selection
@@ -191,15 +229,17 @@ public class year6GameManager : MonoBehaviour
         if (!beenClicked)
         {
             beenClicked = true;
-
+            userSelectionListYear6Part1.Add("Fructose");
             if (currentQuestion.isCorrect4)
             {
                 correct.Play(); // plays wrong sound
+                questionImage.texture = happySmiley.texture;
                 score++;
             }
             else
             {
                 wrong.Play();
+                questionImage.texture = sadSmiley.texture;
             }
 
             StartCoroutine(TransitionToNextQuestion()); // loads new question after user selection
@@ -211,15 +251,17 @@ public class year6GameManager : MonoBehaviour
         if (!beenClicked)
         {
             beenClicked = true;
-
+            userSelectionListYear6Part1.Add("Starch");
             if (currentQuestion.isCorrect5)
             {
                 correct.Play(); // plays wrong sound
+                questionImage.texture = happySmiley.texture;
                 score++;
             }
             else
             {
                 wrong.Play();
+                questionImage.texture = sadSmiley.texture;
             }
 
             StartCoroutine(TransitionToNextQuestion()); // loads new question after user selection
