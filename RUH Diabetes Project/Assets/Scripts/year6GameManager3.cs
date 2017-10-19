@@ -81,7 +81,7 @@ public class year6GameManager3 : MonoBehaviour
 
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex); // restarts the scene to update question
 
-        if (questionsDoneThree == 7)
+        if (questionsDoneThree == 3)
         {
             questionListYear6Part3.ToArray(); // sets all the lists to arrays for email format
             answerListYear6Part3.ToArray();

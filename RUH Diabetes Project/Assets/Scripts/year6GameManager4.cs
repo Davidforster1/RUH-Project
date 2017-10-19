@@ -94,7 +94,7 @@ public class year6GameManager4 : MonoBehaviour
 
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex); // restarts the scene to update question
 
-        if (questionsDoneFour == 3)
+        if (questionsDoneFour == 5)
         {
             questionListYear6Part4.ToArray(); // sets all the lists to arrays for email format
             answerListYear6Part4.ToArray();
@@ -218,23 +218,23 @@ public class year6GameManager4 : MonoBehaviour
     {
         for (int i = 0; i < 3; i++)
         {
-            mail.Body += "<tr>" + "<td>" + year6GameManager2.questionListYear6Part2[i] + "</td>" + "<td>" + year6GameManager2.userSelectionListYear6Part2[i] + "</td>" + "<td>" + year6GameManager2.answerListYear6Part2[i] + "</td>" + "</tr>";
+            mail.Body += "<tr>" + "<td>" + year6GameManager2.questionListYear6Part2[i] + "</td>" + "<td>" + year6GameManager2.userSelectionListYear6Part2[i] + "g" + "</td>" + "<td>" + year6GameManager2.answerListYear6Part2[i] + "g" + "</td>" + "</tr>";
         }
     }
 
     public void loopThroughArray3() // loops through array listing each item instead of reusing code
     {
-        for (int i = 0; i < 8; i++)
+        for (int i = 0; i < 4; i++)
         {
-            mail.Body += "<tr>" + "<td>" + year6GameManager3.questionListYear6Part3[i] + "</td>" + "<td>" + year6GameManager3.userSelectionListYear6Part3[i] + "</td>" + "<td>" + year6GameManager3.answerListYear6Part3[i] + "</td>" + "</tr>";
+            mail.Body += "<tr>" + "<td>" + year6GameManager3.questionListYear6Part3[i] + "</td>" + "<td>" + year6GameManager3.userSelectionListYear6Part3[i] + "g" + "</td>" + "<td>" + year6GameManager3.answerListYear6Part3[i] + "</td>" + "</tr>";
         }
     }
 
     public void loopThroughArray4() // loops through array listing each item instead of reusing code
     {
-        for (int i = 0; i < 4; i++)
+        for (int i = 0; i < 6; i++)
         {
-            mail.Body += "<tr>" + "<td>" + questionListYear6Part4[i] + "</td>" + "<td>" + userSelectionListYear6Part4[i] + "</td>" + "<td>" + answerListYear6Part4[i] + "</td>" + "</tr>";
+            mail.Body += "<tr>" + "<td>" + questionListYear6Part4[i] + "</td>" + "<td>" + userSelectionListYear6Part4[i] + "g" + "</td>" + "<td>" + answerListYear6Part4[i] + "g" + "</td>" + "</tr>";
         }
     }
 

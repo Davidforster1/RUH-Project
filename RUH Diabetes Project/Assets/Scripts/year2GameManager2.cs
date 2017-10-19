@@ -126,7 +126,7 @@ public class year2GameManager2 : MonoBehaviour
 
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex); // restarts the scene to update question
 
-        if (questionsDoneTwo == 1)
+        if (questionsDoneTwo == 0)
         {
             questionListYear2Part2.ToArray(); // sets all the lists to arrays for email format
             answerListYear2Part2.ToArray();
@@ -308,7 +308,7 @@ public class year2GameManager2 : MonoBehaviour
 
     public void loopThroughArray2() // loops through array listing each item instead of reusing code
     {
-        for (int i = 0; i < 2;)
+        for (int i = 0; i < 1;)
         {
             mail.Body += "<tr>" + "<td>" + questionListYear2Part2[i] + "</td>" + "<td>" + userSelectionListYear2Part2[i] + "</td>" + "<td>" + answerListYear2Part2[i] + "</td>" + "</tr>";
             i++;
