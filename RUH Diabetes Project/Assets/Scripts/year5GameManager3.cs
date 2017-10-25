@@ -327,7 +327,7 @@ public class year5GameManager3 : MonoBehaviour
     {
         year5GameManager.score = 0;
         year5GameManager.questionsDone = 0;
-        year5GameManager2.score2 = 2;
+        year5GameManager2.score2 = 0;
         year5GameManager2.questionsDoneTwo = 0;
         score3 = 0;
         questionsDoneThree = 0;

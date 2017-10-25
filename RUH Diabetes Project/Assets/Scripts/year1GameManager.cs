@@ -80,6 +80,9 @@ public class year1GameManager : MonoBehaviour {
 
     public static string storedEmail = ""; // stores the email address, 
 
+    private SpriteRenderer spr;
+    private Sprite[] sprites;
+
     void Start()
     {
         if (unansweredQuestions == null || unansweredQuestions.Count == 0)
@@ -88,6 +91,9 @@ public class year1GameManager : MonoBehaviour {
         }
         beenClicked = false;
         SetRandomImage();
+
+        spr = GetComponent<SpriteRenderer>();
+        sprites = Resources.LoadAll<Sprite>("frog animation");
     }
 
     public void TogglePinInput() // hides main menu canvas, enables wifi warning 
