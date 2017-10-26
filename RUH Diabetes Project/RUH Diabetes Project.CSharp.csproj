@@ -147,6 +147,8 @@
     <Compile Include="Assets\Scripts\year6GameManager4.cs" />
     <Compile Include="Assets\Scripts\year6Results.cs" />
     <Compile Include="Assets\Scripts\yearQuiz.cs" />
+    <Compile Include="Assets\streamVideo.cs" />
+    <Compile Include="Assets\streamVideo2.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Images\Year 2\Year 2 old\Year 2 Image Links.txt" />
