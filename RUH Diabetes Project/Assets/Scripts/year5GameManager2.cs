@@ -42,9 +42,9 @@ public class year5GameManager2 : MonoBehaviour
     [SerializeField]
     private float timeBetweenQuestions = 2f; // delay between questions 
 
-    public static int questionsDoneTwo;
+    public static int questionsDoneTwo, score2;
 
-    public static int score2;
+    private int questionOrder = 0; // keeps track of question number, instead of it being random 
 
     private bool beenClicked;
 
@@ -59,15 +59,14 @@ public class year5GameManager2 : MonoBehaviour
     }
     void SetRandomQuestion()
     {
-        int randomQuestionIndex = Random.Range(0, unansweredQuestions.Count);
-        currentQuestion = unansweredQuestions[randomQuestionIndex];
+        currentQuestion = unansweredQuestions[questionOrder];
 
         question.text = currentQuestion.question;
 
         questionListYear5Part2.Add(currentQuestion.question); // populates the list of questions 
         answerListYear5Part2.Add(currentQuestion.carbohydrateAnswer); // populates the list of correct answers
 
-        unansweredQuestions.RemoveAt(randomQuestionIndex);   // removes a question once it's been answered
+        unansweredQuestions.RemoveAt(questionOrder);   // removes a question once it's been answered
     }
 
     IEnumerator TransitionToNextQuestion()
@@ -86,7 +85,7 @@ public class year5GameManager2 : MonoBehaviour
             SceneManager.LoadScene("year5Menu3"); // if questions done = all of them, load results screen
         }
 
-        questionsDoneTwo++;
+        questionOrder++;  questionsDoneTwo++; 
     }
 
     public void userSubmitButton()

@@ -13,7 +13,7 @@ public class year2Results : MonoBehaviour
     private Text emailPlaceholder; // email entry placeholder text 
 
     public static int score;
-    private int questionsDone;
+    public static int questionsDone;
 
     // Use this for initialization - Stores the values 
     void Start()

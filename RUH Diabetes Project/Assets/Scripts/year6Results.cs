@@ -14,8 +14,7 @@ public class year6Results : MonoBehaviour
     [SerializeField]
     private Text emailPlaceholder; // email entry placeholder text 
 
-    public static int score;
-    private int questionsDone;
+    public static int score, questionsDone;
 
     // Use this for initialization - Stores the values 
     void Start()

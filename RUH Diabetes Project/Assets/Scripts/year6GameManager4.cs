@@ -181,7 +181,7 @@ public class year6GameManager4 : MonoBehaviour
             "<tr>" + "<th>" + "Question" + "</th>" + "<th>" + "User Answer" + "</th>" + "<th>" + "Correct Answer" + "</th>" + "</tr>";
         loopThroughArray4();
         mail.Body += "</table>" +
-         "<br>" + "Total score: " + year5Results.score +
+         "<br>" + "Total score: " + year6Results.score + "/" + year6Results.questionsDone +
          "<br><br>" + "This was sent from the CC-EAT Diabetes App." + "<br> <br>" +
          "<img src = https://i.imgur.com/AAJY39X.png>";
         smtpServer.Credentials = new NetworkCredential("royalunitedhospitals@gmail.com", "Cceat123") as ICredentialsByHost;

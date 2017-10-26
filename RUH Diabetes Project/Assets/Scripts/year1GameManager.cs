@@ -219,9 +219,9 @@ public class year1GameManager : MonoBehaviour {
                 "<tr>" + "<th>" + "Question" + "</th>" + "<th>" + "User Answer" + "</th>" + "<th>" + "Correct Answer" + "</th>" + "</tr>";
             loopThroughArray();
             mail.Body += "</table>" +
-             "<br>" + "Total score: " + score +
-             "<br><br>" + "This was sent from the CC-EAT Diabetes App." + "<br> <br>" +
-             "<img src = https://i.imgur.com/AAJY39X.png>";
+                "<br>" + "Total score: " + score + "/" + questionsDone +
+                "<br><br>" + "This was sent from the CC-EAT Diabetes App." + "<br> <br>" +
+                "<img src = https://i.imgur.com/AAJY39X.png>";
             smtpServer.Credentials = new NetworkCredential("royalunitedhospitals@gmail.com", "Cceat123") as ICredentialsByHost;
             smtpServer.EnableSsl = true;
             ServicePointManager.ServerCertificateValidationCallback =
