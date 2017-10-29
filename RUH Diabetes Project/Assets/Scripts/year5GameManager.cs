@@ -31,6 +31,9 @@ public class year5GameManager : MonoBehaviour
     AudioSource correct;
 
     [SerializeField]
+    Text progressText;
+
+    [SerializeField]
     Text answer1;
 
     [SerializeField]
@@ -72,6 +75,8 @@ public class year5GameManager : MonoBehaviour
             unansweredQuestions = imagePanel.ToList<year5Quiz>();
         }
         SetRandomImage();
+        progressText.text = "Progress: " + (questionsDone + 1) + "/" + "5";
+
     }
 
     public void TogglePinInput() // hides main menu canvas, enables wifi warning 

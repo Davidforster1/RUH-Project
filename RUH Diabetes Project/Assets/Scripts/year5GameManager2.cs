@@ -22,6 +22,9 @@ public class year5GameManager2 : MonoBehaviour
     AudioSource correct;
 
     [SerializeField]
+    Text progressText;
+
+    [SerializeField]
     AudioSource wrong;
 
     [SerializeField]
@@ -56,6 +59,7 @@ public class year5GameManager2 : MonoBehaviour
         }
         beenClicked = false;
         SetRandomQuestion();
+        progressText.text = "Progress: " + (questionsDoneTwo + 2) + "/" + "10";
     }
     void SetRandomQuestion()
     {

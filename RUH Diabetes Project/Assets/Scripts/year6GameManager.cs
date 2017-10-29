@@ -25,7 +25,7 @@ public class year6GameManager : MonoBehaviour
     public InputField emailPinInput; // Where the user types in their pin
 
     [SerializeField]
-    public Text scoreText;
+    public Text progressText; 
 
     [SerializeField]
     public Text resultsText;
@@ -69,6 +69,7 @@ public class year6GameManager : MonoBehaviour
         }
         beenClicked = false;
         SetRandomImage();
+        progressText.text = "Progress: " + (questionsDone + 1) + "/" + "6";
     }
 
     public void TogglePinInput() // hides main menu canvas, enables wifi warning 

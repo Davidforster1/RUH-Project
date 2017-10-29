@@ -29,6 +29,9 @@ public class year5GameManager3 : MonoBehaviour
     AudioSource correct;
 
     [SerializeField]
+    Text progressText;
+
+    [SerializeField]
     RawImage questionImage; // The picture of food
 
     [SerializeField]
@@ -76,6 +79,7 @@ public class year5GameManager3 : MonoBehaviour
             unansweredQuestions = imagePanel.ToList<year5Quiz3>();
         }
         SetRandomImage();
+        progressText.text = "Progress: " + (questionsDoneThree + 1) + "/" + "5";
     }
 
     void SetRandomImage()

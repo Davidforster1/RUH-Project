@@ -16,7 +16,7 @@ public class year6GameManager2 : MonoBehaviour
     public static List<string> userSelectionListYear6Part2 = new List<string>(); // user selections list
 
     [SerializeField]
-    public Text resultsText;
+    public Text progressText; 
 
     [SerializeField]
     AudioSource correct;
@@ -56,6 +56,7 @@ public class year6GameManager2 : MonoBehaviour
         }
         beenClicked = false;
         SetQuestion();
+        progressText.text = "Progress: " + (questionsDoneTwo + 1) + "/" + "3";
     }
     void SetQuestion()
     {

@@ -24,10 +24,7 @@ public class year2GameManager2 : MonoBehaviour
     string currentDate = System.DateTime.Now.ToString("HH:mm:ss d/M/yyyy"); // formats date/time into readable format 
 
     [SerializeField]
-    public Text scoreText;
-
-    [SerializeField]
-    public Text resultsText;
+    public Text progressText;
 
     [SerializeField]
     AudioSource wrong;
@@ -93,6 +90,7 @@ public class year2GameManager2 : MonoBehaviour
         }
         beenClicked = false;
         SetRandomImage();
+        progressText.text = "Progress: " + (questionsDoneTwo + 1) + "/" + "1";
     }
 
     void SetRandomImage()

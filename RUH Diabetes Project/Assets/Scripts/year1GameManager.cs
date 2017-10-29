@@ -28,10 +28,7 @@ public class year1GameManager : MonoBehaviour {
     private GameObject year1MenuCanvas;
 
     [SerializeField]
-    public Text scoreText; // current score
-
-    [SerializeField]
-    public Text resultsText; // results display text
+    public Text progressText; // current score
 
     [SerializeField]
     public Text foodName; // food name text 
@@ -88,6 +85,7 @@ public class year1GameManager : MonoBehaviour {
         }
         beenClicked = false;
         SetRandomImage();
+        progressText.text = "Progress: " + (questionsDone + 1) + "/" + "10";
     }
 
     public void TogglePinInput() // hides main menu canvas, enables wifi warning 
