@@ -126,5 +126,13 @@ public class year6GameManager3 : MonoBehaviour
             converted = float.Parse(userAnswer.text);
         }
     }
+
+    public void exitEarly()
+    {
+        questionListYear6Part3.ToArray(); // sets all the lists to arrays for email format
+        answerListYear6Part3.ToArray();
+        userSelectionListYear6Part3.ToArray();
+        SceneManager.LoadScene("year6Results"); // if questions done = all of them, load results screen
+    }
 }
 

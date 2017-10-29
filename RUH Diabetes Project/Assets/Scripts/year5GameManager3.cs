@@ -225,6 +225,14 @@ public class year5GameManager3 : MonoBehaviour
         }
     }
 
+    public void exitEarly()
+    {
+        questionListYear5Part3.ToArray(); // sets all the lists to arrays for email format
+        answerListYear5Part3.ToArray();
+        userSelectionListYear5Part3.ToArray();
+        SceneManager.LoadScene("year5Results"); // if questions done = all of them, load results screen
+    }
+
     public void year5SendMail() // Mail send function
     {
         if (year1GameManager.storedEmail != "")
@@ -301,25 +309,28 @@ public class year5GameManager3 : MonoBehaviour
 
     public void loopThroughArray() // loops through array listing each item instead of reusing code
     {
-        for (int i = 0; i < 5; i++)
+        for (int i = 0; i < year5GameManager.userSelectionListYear5Part1.Count;)
         {
             mail.Body += "<tr>" + "<td>" + year5GameManager.questionListYear5Part1[i] + "</td>" + "<td>" + year5GameManager.userSelectionListYear5Part1[i] + "</td>" + "<td>" + year5GameManager.answerListYear5Part1[i] + "</td>" + "</tr>";
+            i++;
         }
     }
 
     public void loopThroughArray2() // loops through array listing each item instead of reusing code
     {
-        for (int i = 0; i < 2; i++)
+        for (int i = 0; i < year5GameManager2.userSelectionListYear5Part2.Count; i++)
         {
             mail.Body += "<tr>" + "<td>" + year5GameManager2.questionListYear5Part2[i] + "</td>" + "<td>" + year5GameManager2.userSelectionListYear5Part2[i] + "</td>" + "<td>" + year5GameManager2.answerListYear5Part2[i] + "</td>" + "</tr>";
+            i++;
         }
     }
 
     public void loopThroughArray3() // loops through array listing each item instead of reusing code
     {
-        for (int i = 0; i < 5; i++)
+        for (int i = 0; i < userSelectionListYear5Part3.Count; i++)
         {
             mail.Body += "<tr>" + "<td>" + questionListYear5Part3[i] + "</td>" + "<td>" + userSelectionListYear5Part3[i] + "</td>" + "<td>" + answerListYear5Part3[i] + "</td>" + "</tr>";
+            i++;
         }
     }
 

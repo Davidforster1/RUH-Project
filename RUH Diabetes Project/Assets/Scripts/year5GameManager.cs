@@ -226,6 +226,11 @@ public class year5GameManager : MonoBehaviour
         }
     }
 
-
-
+    public void exitEarly()
+    {
+        questionListYear5Part1.ToArray(); // sets all the lists to arrays for email format
+        answerListYear5Part1.ToArray();
+        userSelectionListYear5Part1.ToArray();
+        SceneManager.LoadScene("year5Results"); // if questions done = all of them, load results screen
+    }
 }

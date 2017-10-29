@@ -228,6 +228,14 @@ public class year2GameManager2 : MonoBehaviour
         }
     }
 
+    public void exitEarly()
+    {
+        questionListYear2Part2.ToArray(); // sets all the lists to arrays for email format
+        answerListYear2Part2.ToArray();
+        userSelectionListYear2Part2.ToArray();
+        SceneManager.LoadScene("year2Results"); // if questions done = all of them, load results screen
+    }
+
     public void year2SendMail() // Mail send function
     {
         if (year1GameManager.storedEmail != "")
@@ -299,7 +307,7 @@ public class year2GameManager2 : MonoBehaviour
 
     public void loopThroughArray() // loops through array listing each item instead of reusing code
     {
-        for (int i = 0; i < 8;)
+        for (int i = 0; i < year2GameManager.userSelectionListYear2Part1.Count;)
         {
             mail.Body += "<tr>" + "<td>" + year2GameManager.questionListYear2Part1[i] + "</td>" + "<td>" + year2GameManager.userSelectionListYear2Part1[i] + "</td>" + "<td>" + year2GameManager.answerListYear2Part1[i] + "</td>" + "</tr>";
             i++;
@@ -308,7 +316,7 @@ public class year2GameManager2 : MonoBehaviour
 
     public void loopThroughArray2() // loops through array listing each item instead of reusing code
     {
-        for (int i = 0; i < 1;)
+        for (int i = 0; i < userSelectionListYear2Part2.Count;)
         {
             mail.Body += "<tr>" + "<td>" + questionListYear2Part2[i] + "</td>" + "<td>" + userSelectionListYear2Part2[i] + "</td>" + "<td>" + answerListYear2Part2[i] + "</td>" + "</tr>";
             i++;

@@ -200,4 +200,11 @@ public class year2GameManager : MonoBehaviour
         }
     }
 
+    public void exitEarly()
+    {
+        questionListYear2Part1.ToArray(); // sets all the lists to arrays for email format
+        answerListYear2Part1.ToArray();
+        userSelectionListYear2Part1.ToArray();
+        SceneManager.LoadScene("year2Results"); // if questions done = all of them, load results screen
+    }
 }

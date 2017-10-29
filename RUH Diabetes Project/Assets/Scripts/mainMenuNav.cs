@@ -9,6 +9,12 @@ public class mainMenuNav : MonoBehaviour {
     [SerializeField]
     private GameObject mainMenuCanvas;
 
+    [SerializeField]
+    private GameObject activityCanvas; // the canvas which holds the activity
+
+    [SerializeField]
+    private GameObject escapeCanvas; // the canvas which asks the user for quit and email confirmation
+
     public void UserSelectPlay() // takes user back to the main menu
     {
         SceneManager.LoadScene("yearSelection"); // if questions done = all of them, load results screen
@@ -128,5 +134,19 @@ public class mainMenuNav : MonoBehaviour {
     {
             mainMenuCanvas.SetActive(false);
             wifiAlertCanvas.SetActive(true);
+    }
+
+    public void ToggleEscapeWarning() // hides main menu canvas, enables wifi warning 
+    {
+        if (activityCanvas.activeSelf == true && escapeCanvas.activeSelf == false)
+        {
+            activityCanvas.SetActive(false);
+            escapeCanvas.SetActive(true);
+        }
+        else
+        {
+            activityCanvas.SetActive(true);
+            escapeCanvas.SetActive(false);
+        }
     }
 }

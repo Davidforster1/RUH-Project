@@ -146,6 +146,14 @@ public class year4GameManager : MonoBehaviour {
         }
     }
 
+    public void exitEarly()
+    {
+        questionList.ToArray(); // sets all the lists to arrays for email format
+        answerList.ToArray();
+        userSelectionList.ToArray();
+        SceneManager.LoadScene("year4Results"); // if questions done = all of them, load results screen
+    }
+
     public void year4SendMail() // Mail send function
     {
         if (year1GameManager.storedEmail != "")
@@ -212,7 +220,7 @@ public class year4GameManager : MonoBehaviour {
 
     public void loopThroughArray() // loops through array listing each item instead of reusing code
     {
-        for (int i = 0; i < 12;)
+        for (int i = 0; i < userSelectionList.Count;)
         {
             mail.Body += "<tr>" + "<td>" + questionList[i] + "</td>" + "<td>" + userSelectionList[i] + "g" + "</td>" + "<td>" + answerList[i] + "g" + "</td>" + "</tr>";
             i++;

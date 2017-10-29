@@ -176,8 +176,15 @@ public class year3GameManager : MonoBehaviour {
             }
 
             StartCoroutine(TransitionToNextQuestion()); // loads new question after user selection
-
         }
+    }
+
+    public void exitEarly()
+    {
+        questionList.ToArray(); // sets all the lists to arrays for email format
+        answerList.ToArray();
+        userSelectionList.ToArray();
+        SceneManager.LoadScene("year3Results"); // if questions done = all of them, load results screen
     }
 
     public void year3SendMail() // Mail send function
@@ -246,7 +253,7 @@ public class year3GameManager : MonoBehaviour {
 
     public void loopThroughArray() // loops through array listing each item instead of reusing code
     {
-        for (int i = 0; i < 9;)
+        for (int i = 0; i < userSelectionList.Count;)
         {
             mail.Body += "<tr>" + "<td>" + questionList[i] + "</td>" + "<td>" + userSelectionList[i] + "</td>" + "<td>" + answerList[i] + "</td>" + "</tr>";
             i++;

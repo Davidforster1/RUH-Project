@@ -127,6 +127,14 @@ public class year6GameManager4 : MonoBehaviour
            }
        }
 
+    public void exitEarly()
+    {
+        questionListYear6Part4.ToArray(); // sets all the lists to arrays for email format
+        answerListYear6Part4.ToArray();
+        userSelectionListYear6Part4.ToArray();
+        SceneManager.LoadScene("year6Results"); // if questions done = all of them, load results screen
+    }
+
     public void year6SendMail() // Mail send function
     {
         if (year1GameManager.storedEmail != "")
@@ -208,33 +216,37 @@ public class year6GameManager4 : MonoBehaviour
 
     public void loopThroughArray() // loops through array listing each item instead of reusing code
     {
-        for (int i = 0; i < 6; i++)
+        for (int i = 0; i < year6GameManager.userSelectionListYear6Part1.Count;)
         {
             mail.Body += "<tr>" + "<td>" + year6GameManager.questionListYear6Part1[i] + "</td>" + "<td>" + year6GameManager.userSelectionListYear6Part1[i] + "</td>" + "<td>" + year6GameManager.answerListYear6Part1[i] + "</td>" + "</tr>";
+            i++;
         }
     }
 
     public void loopThroughArray2() // loops through array listing each item instead of reusing code
     {
-        for (int i = 0; i < 3; i++)
+        for (int i = 0; i < year6GameManager2.userSelectionListYear6Part2.Count;)
         {
             mail.Body += "<tr>" + "<td>" + year6GameManager2.questionListYear6Part2[i] + "</td>" + "<td>" + year6GameManager2.userSelectionListYear6Part2[i] + "g" + "</td>" + "<td>" + year6GameManager2.answerListYear6Part2[i] + "g" + "</td>" + "</tr>";
+            i++;
         }
     }
 
     public void loopThroughArray3() // loops through array listing each item instead of reusing code
     {
-        for (int i = 0; i < 4; i++)
+        for (int i = 0; i < year6GameManager3.userSelectionListYear6Part3.Count;)
         {
             mail.Body += "<tr>" + "<td>" + year6GameManager3.questionListYear6Part3[i] + "</td>" + "<td>" + year6GameManager3.userSelectionListYear6Part3[i] + "g" + "</td>" + "<td>" + year6GameManager3.answerListYear6Part3[i] + "</td>" + "</tr>";
+            i++;
         }
     }
 
     public void loopThroughArray4() // loops through array listing each item instead of reusing code
     {
-        for (int i = 0; i < 6; i++)
+        for (int i = 0; i < userSelectionListYear6Part4.Count;)
         {
             mail.Body += "<tr>" + "<td>" + questionListYear6Part4[i] + "</td>" + "<td>" + userSelectionListYear6Part4[i] + "g" + "</td>" + "<td>" + answerListYear6Part4[i] + "g" + "</td>" + "</tr>";
+            i++;
         }
     }
 

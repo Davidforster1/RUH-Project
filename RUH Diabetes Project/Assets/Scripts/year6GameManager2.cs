@@ -107,4 +107,12 @@ public class year6GameManager2 : MonoBehaviour
             StartCoroutine(TransitionToNextQuestion()); // loads new question after user selection
         }
     }
+
+    public void exitEarly()
+    {
+        questionListYear6Part2.ToArray(); // sets all the lists to arrays for email format
+        answerListYear6Part2.ToArray();
+        userSelectionListYear6Part2.ToArray();
+        SceneManager.LoadScene("year6Results"); // if questions done = all of them, load results screen
+    }
 }
