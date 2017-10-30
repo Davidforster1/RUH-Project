@@ -1,4 +1,4 @@
-Android
+iOS
 0e206abc0faa955f6cacb43f89f0a444 Assembly-CSharp.dll:MaterialUI.RippleAnim
 589fe6e1867b6a18424a9606d79fe6bf Assembly-CSharp.dll:MaterialUI.NavDrawerConfig
 2b8913328f5a53011dd71be5a2493214 Assembly-CSharp.dll:MaterialUI.EZAnim
