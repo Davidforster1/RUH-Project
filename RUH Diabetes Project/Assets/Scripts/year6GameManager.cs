@@ -74,9 +74,17 @@ public class year6GameManager : MonoBehaviour
 
     public void TogglePinInput() // hides main menu canvas, enables wifi warning 
     {
-        pinEntryCanvas.SetActive(false);
-        year6MenuCanvas.SetActive(true);
-        emailPin = emailPinInput.text;
+        if (pinEntryCanvas.activeSelf == true && year6MenuCanvas.activeSelf == false)
+        {
+            pinEntryCanvas.SetActive(false);
+            year6MenuCanvas.SetActive(true);
+            emailPin = emailPinInput.text;
+        }
+        else
+        {
+            pinEntryCanvas.SetActive(true);
+            year6MenuCanvas.SetActive(false);
+        }
     }
 
     void SetRandomImage()

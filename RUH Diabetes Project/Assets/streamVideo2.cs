@@ -29,7 +29,6 @@ public class streamVideo2 : MonoBehaviour {
         
         //Add AudioSource
         audioSource = gameObject.AddComponent<AudioSource>();
-        videoPlayer.isLooping = true;
 
         //Disable Play on Awake for both Video and Audio
         videoPlayer.playOnAwake = false;

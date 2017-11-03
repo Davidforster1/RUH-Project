@@ -17,6 +17,6 @@ public class mainMenuVideo : MonoBehaviour {
         Handheld.PlayFullScreenMovie(video, Color.black, FullScreenMovieControlMode.CancelOnInput, FullScreenMovieScalingMode.Fill); //Changing the controls and scaling of the movie
         yield return new WaitForEndOfFrame();
         Debug.Log("The Video playback is now completed.");  // debugging for the console
-        SceneManager.LoadScene("yearSelection");            // loading next scene
+        SceneManager.LoadScene("year1Menu");            // loading next scene
     }
 }

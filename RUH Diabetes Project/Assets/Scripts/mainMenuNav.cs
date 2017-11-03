@@ -25,7 +25,7 @@ public class mainMenuNav : MonoBehaviour {
         Application.Quit();
     }
 
-    public void UserStart()
+    public void UserStartVideo()
     {
         SceneManager.LoadScene("mainMenuVideo");
     }
@@ -105,6 +105,11 @@ public class mainMenuNav : MonoBehaviour {
         SceneManager.LoadScene("year1Menu");
     }
 
+    public void UserSelectYear1Two()
+    {
+        SceneManager.LoadScene("year1Menu2");
+    }
+
     public void UserSelectYear2()
     {
         SceneManager.LoadScene("year2Menu");
@@ -134,6 +139,12 @@ public class mainMenuNav : MonoBehaviour {
     {
             mainMenuCanvas.SetActive(false);
             wifiAlertCanvas.SetActive(true);
+    }
+
+    public void MainMenuReset()
+    {
+        mainMenuCanvas.SetActive(true);
+        wifiAlertCanvas.SetActive(false);
     }
 
     public void ToggleEscapeWarning() // hides main menu canvas, enables wifi warning 

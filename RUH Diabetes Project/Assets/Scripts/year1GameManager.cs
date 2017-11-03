@@ -22,10 +22,10 @@ public class year1GameManager : MonoBehaviour {
     string currentDate = System.DateTime.Now.ToString("HH:mm:ss d/M/yyyy"); // formats date/time into readable format 
 
     [SerializeField]
-    private GameObject pinEntryCanvas;
+    public GameObject resultsCanvas;
 
     [SerializeField]
-    private GameObject year1MenuCanvas;
+    public GameObject emailCanvas;
 
     [SerializeField]
     public Text progressText; // current score
@@ -63,11 +63,11 @@ public class year1GameManager : MonoBehaviour {
     [SerializeField]
     private AudioSource questionSound; // connects the question audio to the script 
 
+    private bool beenClicked;
+
     public static int questionsDone;
 
     public static int score;
-
-    private bool beenClicked;
 
     public static int emailTries = 0 ; // counts how many attempts have been made at emailing
 
@@ -88,11 +88,23 @@ public class year1GameManager : MonoBehaviour {
         progressText.text = "Progress: " + (questionsDone + 1) + "/" + "10";
     }
 
-    public void TogglePinInput() // hides main menu canvas, enables wifi warning 
+    public void SavePin()
     {
-        pinEntryCanvas.SetActive(false);
-        year1MenuCanvas.SetActive(true);
         emailPin = emailPinInput.text;
+    }
+
+    public void ToggleResultsScreen() // hides main menu canvas, enables wifi warning 
+    {
+        if (emailCanvas.activeSelf == true && resultsCanvas.activeSelf == false)
+        {
+            emailCanvas.SetActive(false);
+            resultsCanvas.SetActive(true);
+        }
+        else
+        {
+            emailCanvas.SetActive(true);
+            resultsCanvas.SetActive(false);
+        }
     }
 
     void SetRandomImage()
