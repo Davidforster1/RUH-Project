@@ -39,9 +39,6 @@ public class year3GameManager : MonoBehaviour {
     public Text progressText;
 
     [SerializeField]
-    AudioSource wrong;
-
-    [SerializeField]
     AudioSource correct;
 
     [SerializeField]
@@ -155,7 +152,6 @@ public class year3GameManager : MonoBehaviour {
             }
             else
             {
-                wrong.Play();
                 answer1.texture = sadSmiley.texture;
             }
 
@@ -177,7 +173,6 @@ public class year3GameManager : MonoBehaviour {
             }
             else
             {
-                wrong.Play();
                 answer2.texture = sadSmiley.texture;
             }
 

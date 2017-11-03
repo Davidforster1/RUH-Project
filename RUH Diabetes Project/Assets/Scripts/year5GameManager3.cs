@@ -23,9 +23,6 @@ public class year5GameManager3 : MonoBehaviour
     string currentDate = System.DateTime.Now.ToString("HH:mm:ss d/M/yyyy"); // formats date/time into readable format 
 
     [SerializeField]
-    AudioSource wrong;
-
-    [SerializeField]
     AudioSource correct;
 
     [SerializeField]
@@ -129,7 +126,6 @@ public class year5GameManager3 : MonoBehaviour
             }
             else
             {
-                wrong.Play();
                 questionImage.texture = sadSmiley.texture;
             }
 
@@ -151,7 +147,6 @@ public class year5GameManager3 : MonoBehaviour
             }
             else
             {
-                wrong.Play();
                 questionImage.texture = sadSmiley.texture;
             }
 
@@ -174,7 +169,6 @@ public class year5GameManager3 : MonoBehaviour
             }
             else
             {
-                wrong.Play();
                 questionImage.texture = sadSmiley.texture;
             }
 
@@ -197,7 +191,6 @@ public class year5GameManager3 : MonoBehaviour
             }
             else
             {
-                wrong.Play();
                 questionImage.texture = sadSmiley.texture;
             }
 
@@ -220,7 +213,6 @@ public class year5GameManager3 : MonoBehaviour
             }
             else
             {
-                wrong.Play();
                 questionImage.texture = sadSmiley.texture;
             }
 

@@ -1,11 +1,9 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 public class mainMenuVideo2 : MonoBehaviour {
 
-    private string movie = "diabetesVideo.mp4";  // The file's name which resides in the StreamingAssets folder
+    private string movie = "TD1AppWelcomeVideo002.mp4";  // The file's name which resides in the StreamingAssets folder
 
 	// Use this for initialization
 	void Start () {

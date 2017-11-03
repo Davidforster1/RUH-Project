@@ -27,9 +27,6 @@ public class year2GameManager2 : MonoBehaviour
     public Text progressText;
 
     [SerializeField]
-    AudioSource wrong;
-
-    [SerializeField]
     AudioSource correct;
 
     [SerializeField]
@@ -149,7 +146,6 @@ public class year2GameManager2 : MonoBehaviour
             }
             else
             {
-                wrong.Play();
                 answer1.texture = sadSmiley.texture;
             }
 
@@ -171,7 +167,6 @@ public class year2GameManager2 : MonoBehaviour
             }
             else
             {
-                wrong.Play();
                 answer2.texture = sadSmiley.texture;
             }
 
@@ -194,7 +189,6 @@ public class year2GameManager2 : MonoBehaviour
             }
             else
             {
-                wrong.Play();
                 answer3.texture = sadSmiley.texture;
             }
 
@@ -217,7 +211,6 @@ public class year2GameManager2 : MonoBehaviour
             }
             else
             {
-                wrong.Play();
                 answer4.texture = sadSmiley.texture;
             }
 

@@ -25,9 +25,6 @@ public class year5GameManager2 : MonoBehaviour
     Text progressText;
 
     [SerializeField]
-    AudioSource wrong;
-
-    [SerializeField]
     Text question;
 
     [SerializeField]
@@ -106,7 +103,6 @@ public class year5GameManager2 : MonoBehaviour
             }
             else
             {
-                wrong.Play();
                 questionImage.texture = sadSmiley.texture;
             }
 

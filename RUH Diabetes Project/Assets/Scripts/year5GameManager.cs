@@ -25,9 +25,6 @@ public class year5GameManager : MonoBehaviour
     public InputField emailPinInput; // Where the user types in their pin
 
     [SerializeField]
-    AudioSource wrong;
-
-    [SerializeField]
     AudioSource correct;
 
     [SerializeField]
@@ -139,7 +136,6 @@ public class year5GameManager : MonoBehaviour
             }
             else
             {
-                wrong.Play();
                 questionImage.texture = sadSmiley.texture;
             }
 
@@ -161,7 +157,6 @@ public class year5GameManager : MonoBehaviour
             }
             else
             {
-                wrong.Play();
                 questionImage.texture = sadSmiley.texture;
             }
 
@@ -184,7 +179,6 @@ public class year5GameManager : MonoBehaviour
             }
             else
             {
-                wrong.Play();
                 questionImage.texture = sadSmiley.texture;
             }
 
@@ -207,7 +201,6 @@ public class year5GameManager : MonoBehaviour
             }
             else
             {
-                wrong.Play();
                 questionImage.texture = sadSmiley.texture;
             }
 
@@ -230,7 +223,6 @@ public class year5GameManager : MonoBehaviour
             }
             else
             {
-                wrong.Play();
                 questionImage.texture = sadSmiley.texture;
             }
 

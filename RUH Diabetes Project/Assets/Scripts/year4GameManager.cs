@@ -41,9 +41,6 @@ public class year4GameManager : MonoBehaviour {
     AudioSource correct;
 
     [SerializeField]
-    AudioSource wrong;
-
-    [SerializeField]
     public Text foodCarbohydrates;
 
     [SerializeField]
@@ -147,7 +144,6 @@ public class year4GameManager : MonoBehaviour {
             }
               else
             {
-                wrong.Play();
                 NutritionImage.texture = sadSmiley.texture;
             }
 

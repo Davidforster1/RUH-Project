@@ -31,9 +31,6 @@ public class year6GameManager : MonoBehaviour
     public Text resultsText;
 
     [SerializeField]
-    AudioSource wrong;
-
-    [SerializeField]
     AudioSource correct;
 
     [SerializeField]
@@ -181,7 +178,6 @@ public class year6GameManager : MonoBehaviour
             }
             else
             {
-                wrong.Play();
                 questionImage.texture = sadSmiley.texture;
             }
 
@@ -203,7 +199,6 @@ public class year6GameManager : MonoBehaviour
             }
             else
             {
-                wrong.Play();
                 questionImage.texture = sadSmiley.texture;
             }
 
@@ -225,7 +220,6 @@ public class year6GameManager : MonoBehaviour
             }
             else
             {
-                wrong.Play();
                 questionImage.texture = sadSmiley.texture;
             }
 
@@ -247,7 +241,6 @@ public class year6GameManager : MonoBehaviour
             }
             else
             {
-                wrong.Play();
                 questionImage.texture = sadSmiley.texture;
             }
 
@@ -269,7 +262,6 @@ public class year6GameManager : MonoBehaviour
             }
             else
             {
-                wrong.Play();
                 questionImage.texture = sadSmiley.texture;
             }
 

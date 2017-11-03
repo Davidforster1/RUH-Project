@@ -33,9 +33,6 @@ public class year1GameManager : MonoBehaviour {
     [SerializeField]
     public Text foodName; // food name text 
 
-    [SerializeField]
-    AudioSource wrong; // correct sound
-
     [SerializeField] // incorrect sound 
     AudioSource correct;
 
@@ -158,7 +155,6 @@ public class year1GameManager : MonoBehaviour {
             }
             else
             {
-                wrong.Play();
                 questionImage.texture = sadSmiley.texture;
             }
 
@@ -181,7 +177,6 @@ public class year1GameManager : MonoBehaviour {
             }
             else
             {
-                wrong.Play();
                 questionImage.texture = sadSmiley.texture;
             }
 
