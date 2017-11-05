@@ -8,6 +8,7 @@ using System.Net.Mail;
 using System.Net.Security;
 using System.Security.Cryptography.X509Certificates;
 using System.Net;
+using System.Net.Sockets;
 
 public class year1GameManager : MonoBehaviour {
 
@@ -264,7 +265,7 @@ public class year1GameManager : MonoBehaviour {
                 mail.Dispose(); // cancels the mail sending
                 emailTries++;
                 SceneManager.LoadScene("year1Results2");
-            }      
+            }    
     }
 
     public void loopThroughArray() // loops through array listing each item instead of reusing code

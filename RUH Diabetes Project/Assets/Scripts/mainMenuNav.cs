@@ -50,9 +50,9 @@ public class mainMenuNav : MonoBehaviour {
         SceneManager.LoadScene("year1Results");
     }
 
-    public void UserSelectYear1Results2()
+    public void UserSelectYear1ResultsVideo()
     {
-        SceneManager.LoadScene("year1Results2");
+        SceneManager.LoadScene("year1ResultsVideo");
     }
 
     public void UserSelectYear2Activity()
