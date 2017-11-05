@@ -12,7 +12,7 @@ public class mainMenuVideo2 : MonoBehaviour {
 
     private IEnumerator streamVideo(string video)
     {
-        Handheld.PlayFullScreenMovie(video, Color.black, FullScreenMovieControlMode.CancelOnInput, FullScreenMovieScalingMode.Fill); //Changing the controls and scaling of the movie
+        Handheld.PlayFullScreenMovie(video, Color.black, FullScreenMovieControlMode.Full, FullScreenMovieScalingMode.Fill); //Changing the controls and scaling of the movie
         yield return new WaitForEndOfFrame();
         Debug.Log("The Video playback is now completed.");  // debugging for the console
        // SceneManager.LoadScene("year1Menu2");            // loading next scene

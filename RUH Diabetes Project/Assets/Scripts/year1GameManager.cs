@@ -60,6 +60,9 @@ public class year1GameManager : MonoBehaviour {
     [SerializeField]
     private AudioSource questionSound; // connects the question audio to the script 
 
+    [SerializeField]
+    private AudioSource year1MenuAudio; // year1 menu instruction audio 
+
     private bool beenClicked;
 
     public static int questionsDone;
@@ -85,7 +88,7 @@ public class year1GameManager : MonoBehaviour {
         progressText.text = "Progress: " + (questionsDone + 1) + "/" + "10";
     }
 
-    public void SavePin()
+    public void SavePin() // saves the pin 
     {
         emailPin = emailPinInput.text;
     }
@@ -104,7 +107,7 @@ public class year1GameManager : MonoBehaviour {
         }
     }
 
-    void SetRandomImage()
+    void SetRandomImage() // sets the random question 
     {
         int randomImageIndex = Random.Range(0, unansweredQuestions.Count);
         currentQuestion = unansweredQuestions[randomImageIndex];
@@ -121,7 +124,7 @@ public class year1GameManager : MonoBehaviour {
         unansweredQuestions.RemoveAt(randomImageIndex);   // removes a question once it's been answered
     }
 
-    IEnumerator TransitionToNextQuestion()
+    IEnumerator TransitionToNextQuestion() // question transitions 
     {
         unansweredQuestions.Remove(currentQuestion);
 
@@ -140,7 +143,7 @@ public class year1GameManager : MonoBehaviour {
         questionsDone++;
     }
 
-    public void userSelectTrue()
+    public void userSelectTrue() // function runs on button true click 
     {
         if (!beenClicked)
         {
@@ -162,7 +165,7 @@ public class year1GameManager : MonoBehaviour {
         }  
     }
 
-    public void userSelectFalse()
+    public void userSelectFalse() // function runs on button false click 
     {
         if (!beenClicked)
         {
@@ -185,12 +188,19 @@ public class year1GameManager : MonoBehaviour {
         }
     }
 
-    public void exitEarly()
+    public void exitEarly() // takes the user to the results section mid-quiz
     {
         questionList.ToArray(); // sets all the lists to arrays for email format
         answerList.ToArray();
         userSelectionList.ToArray();
         SceneManager.LoadScene("year1Results"); // if questions done = all of them, load results screen
+    }
+
+    public void offlineMode() // allows the user to exit without sending an email
+    {
+        yearResetScore();
+        emailTries = 0;
+        SceneManager.LoadScene("yearSelection");
     }
 
     public void year1SendMail() // Mail send function
@@ -275,8 +285,13 @@ public class year1GameManager : MonoBehaviour {
         answerList.Clear();
     }
 
-    public void replayQuestionAudio()
+    public void replayQuestionAudio() // plays the current question audio
     {
-        questionSound.Play(); // plays the current question audio
+        questionSound.Play(); 
+    }
+
+    public void playYearOneMenuAudio()
+    {
+        year1MenuAudio.Play();
     }
 }
