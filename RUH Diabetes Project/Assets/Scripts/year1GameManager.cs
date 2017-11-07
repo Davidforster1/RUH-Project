@@ -23,10 +23,10 @@ public class year1GameManager : MonoBehaviour {
     string currentDate = System.DateTime.Now.ToString("HH:mm:ss d/M/yyyy"); // formats date/time into readable format 
 
     [SerializeField]
-    public GameObject resultsCanvas;
+    public GameObject helpCanvas;
 
-    [SerializeField]
-    public GameObject emailCanvas;
+  //  [SerializeField]
+  //  public GameObject emailCanvas;
 
     [SerializeField]
     public Text progressText; // current score
@@ -41,10 +41,13 @@ public class year1GameManager : MonoBehaviour {
     RawImage questionImage; // The picture of food
 
     [SerializeField]
-    RawImage sadSmiley; // happy smiley face on answer 
+    GameObject questionImageToggler; // object of the question image for showing if user right/wrong
 
     [SerializeField]
-    RawImage happySmiley; // sad smiley face on answer 
+    GameObject sadSmiley; // happy smiley face on answer 
+
+    [SerializeField]
+    GameObject happySmiley; // sad smiley face on answer 
 
     [SerializeField]
     public InputField emailInput; // Where the user types in their email
@@ -62,7 +65,7 @@ public class year1GameManager : MonoBehaviour {
     private AudioSource questionSound; // connects the question audio to the script 
 
     [SerializeField]
-    private AudioSource year1MenuAudio; // year1 menu instruction audio 
+    private AudioSource year1MenuAudio; // year1 menu instruction audio
 
     private bool beenClicked;
 
@@ -86,7 +89,7 @@ public class year1GameManager : MonoBehaviour {
         }
         beenClicked = false;
         SetRandomImage();
-        progressText.text = "Progress: " + (questionsDone + 1) + "/" + "10";
+        progressText.text = "Question: " + (questionsDone + 1) + "/" + "10";
     }
 
     public void SavePin() // saves the pin 
@@ -94,17 +97,15 @@ public class year1GameManager : MonoBehaviour {
         emailPin = emailPinInput.text;
     }
 
-    public void ToggleResultsScreen() // hides main menu canvas, enables wifi warning 
+    public void ToggleHelpScreen() // hides main menu canvas, enables wifi warning 
     {
-        if (emailCanvas.activeSelf == true && resultsCanvas.activeSelf == false)
+        if (helpCanvas.activeSelf == false)
         {
-            emailCanvas.SetActive(false);
-            resultsCanvas.SetActive(true);
+            helpCanvas.SetActive(true);
         }
         else
         {
-            emailCanvas.SetActive(true);
-            resultsCanvas.SetActive(false);
+            helpCanvas.SetActive(false);
         }
     }
 
@@ -155,11 +156,13 @@ public class year1GameManager : MonoBehaviour {
             {
                 correct.Play(); // plays wrong sound
                 score++;
-                questionImage.texture = happySmiley.texture;
+                happySmiley.SetActive(true); sadSmiley.SetActive(false);
+                questionImageToggler.SetActive(false);
             }
             else
             {
-                questionImage.texture = sadSmiley.texture;
+                sadSmiley.SetActive(true); happySmiley.SetActive(false);
+                questionImageToggler.SetActive(false);
             }
 
             StartCoroutine(TransitionToNextQuestion()); // loads new question after user selection
@@ -177,11 +180,13 @@ public class year1GameManager : MonoBehaviour {
             {
                 correct.Play(); // plays wrong sound
                 score++;
-                questionImage.texture = happySmiley.texture;
+                happySmiley.SetActive(true); sadSmiley.SetActive(false);
+                questionImageToggler.SetActive(false); 
             }
             else
             {
-                questionImage.texture = sadSmiley.texture;
+                sadSmiley.SetActive(true); happySmiley.SetActive(false);
+                questionImageToggler.SetActive(false);
             }
 
             StartCoroutine(TransitionToNextQuestion()); // loads new question after user selection

@@ -12,6 +12,13 @@ public class year1Results2 : MonoBehaviour
     [SerializeField]
     private Text emailPlaceholder; // email entry placeholder text 
 
+    [SerializeField]
+    private GameObject results2Canvas; // main canvas 
+
+    [SerializeField]
+    private GameObject quitConfirmationCanvas; // asks for confirmation on quit
+
+
     private int score;
     private int questionsDone;
 
@@ -27,6 +34,20 @@ public class year1Results2 : MonoBehaviour
         {
             emailInstructions.text = "The email did not send. Please try again";
             emailPlaceholder.text = "Please enter your email address here:";
+        }
+    }
+
+    public void ToggleResultsScreen() // hides main menu canvas, enables wifi warning 
+    {
+        if (results2Canvas.activeSelf == true && quitConfirmationCanvas.activeSelf == false)
+        {
+            results2Canvas.SetActive(false);
+            quitConfirmationCanvas.SetActive(true);
+        }
+        else
+        {
+            results2Canvas.SetActive(true);
+            quitConfirmationCanvas.SetActive(false);
         }
     }
 }
