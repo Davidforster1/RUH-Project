@@ -8,7 +8,6 @@ using System.Net.Mail;
 using System.Net.Security;
 using System.Security.Cryptography.X509Certificates;
 using System.Net;
-using System.Net.Sockets;
 
 public class year1GameManager : MonoBehaviour {
 
@@ -24,9 +23,6 @@ public class year1GameManager : MonoBehaviour {
 
     [SerializeField]
     public GameObject helpCanvas;
-
-  //  [SerializeField]
-  //  public GameObject emailCanvas;
 
     [SerializeField]
     public Text progressText; // current score
@@ -97,7 +93,7 @@ public class year1GameManager : MonoBehaviour {
         emailPin = emailPinInput.text;
     }
 
-    public void ToggleHelpScreen() // hides main menu canvas, enables wifi warning 
+    public void ToggleHelpScreen() // toggles help text
     {
         if (helpCanvas.activeSelf == false)
         {
@@ -118,7 +114,6 @@ public class year1GameManager : MonoBehaviour {
         foodName.text = currentQuestion.foodName;
         questionSound.clip = currentQuestion.questionAudio; // assigns audio clip to current question
         questionSound.Play(); // plays the current question audio
-
 
         questionList.Add(currentQuestion.foodName);
         answerList.Add(currentQuestion.isCorrect);
@@ -296,7 +291,7 @@ public class year1GameManager : MonoBehaviour {
         questionSound.Play(); 
     }
 
-    public void playYearOneMenuAudio()
+    public void playYearOneMenuAudio() // plays the year 1 audio 
     {
         year1MenuAudio.Play();
     }
