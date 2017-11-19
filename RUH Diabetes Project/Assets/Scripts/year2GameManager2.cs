@@ -87,7 +87,7 @@ public class year2GameManager2 : MonoBehaviour
         }
         beenClicked = false;
         SetRandomImage();
-        progressText.text = "Progress: " + (questionsDoneTwo + 1) + "/" + "1";
+        progressText.text = "Question: " + (questionsDoneTwo + 1) + "/" + "1";
     }
 
     void SetRandomImage()
@@ -225,6 +225,13 @@ public class year2GameManager2 : MonoBehaviour
         answerListYear2Part2.ToArray();
         userSelectionListYear2Part2.ToArray();
         SceneManager.LoadScene("year2Results"); // if questions done = all of them, load results screen
+    }
+
+    public void offlineMode() // allows the user to exit without sending an email
+    {
+        yearResetScore();
+        emailTries = 0;
+        SceneManager.LoadScene("yearSelection");
     }
 
     public void year2SendMail() // Mail send function

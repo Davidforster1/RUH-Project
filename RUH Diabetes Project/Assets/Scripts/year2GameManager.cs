@@ -77,22 +77,12 @@ public class year2GameManager : MonoBehaviour
         }
         beenClicked = false;
         SetRandomImage(); // sets the question
-        progressText.text = "Progress: " + (questionsDoneOne + 1) + "/" + "8";
+        progressText.text = "Question: " + (questionsDoneOne + 1) + "/" + "8";
     }
 
-    public void TogglePinInput() // hides main menu canvas, enables wifi warning 
+    public void SavePin() // saves the pin 
     {
-        if (pinEntryCanvas.activeSelf == true && year2MenuCanvas.activeSelf == false)
-        {
-            pinEntryCanvas.SetActive(false);
-            year2MenuCanvas.SetActive(true);
-            emailPin = emailPinInput.text;
-        }
-        else
-        {
-            pinEntryCanvas.SetActive(true);
-            year2MenuCanvas.SetActive(false);
-        }
+        emailPin = emailPinInput.text;
     }
 
     void SetRandomImage()

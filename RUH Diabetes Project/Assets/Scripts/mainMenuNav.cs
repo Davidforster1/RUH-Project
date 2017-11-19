@@ -55,11 +55,6 @@ public class mainMenuNav : MonoBehaviour {
         SceneManager.LoadScene("year1Results2");
     }
 
-    public void UserSelectYear1ResultsVideo()
-    {
-        SceneManager.LoadScene("year1ResultsVideo");
-    }
-
     public void UserSelectYear2Activity()
     {
         SceneManager.LoadScene("year2Activity");
@@ -68,6 +63,16 @@ public class mainMenuNav : MonoBehaviour {
     public void UserSelectYear2Activity2()
     {
         SceneManager.LoadScene("year2Activity2");
+    }
+
+    public void UserSelectYear2Results1()
+    {
+        SceneManager.LoadScene("year2Results");
+    }
+
+    public void UserSelectYear2Results2()
+    {
+        SceneManager.LoadScene("year2Results2");
     }
 
     public void UserSelectYear3Activity()
@@ -117,7 +122,7 @@ public class mainMenuNav : MonoBehaviour {
 
     public void UserSelectYear1()
     {
-        SceneManager.LoadScene("year1Menu");
+        SceneManager.LoadScene("year1Menu1");
     }
 
     public void UserSelectYear1Two()
@@ -127,7 +132,12 @@ public class mainMenuNav : MonoBehaviour {
 
     public void UserSelectYear2()
     {
-        SceneManager.LoadScene("year2Menu");
+        SceneManager.LoadScene("year2Menu1");
+    }
+
+    public void UserSelectYear2point1()
+    {
+        SceneManager.LoadScene("year2Menu1.1");
     }
 
     public void UserSelectYear3()
