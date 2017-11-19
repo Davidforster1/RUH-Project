@@ -122,7 +122,7 @@ public class mainMenuNav : MonoBehaviour {
 
     public void UserSelectYear1Two()
     {
-        SceneManager.LoadScene("year1Menu2");
+        SceneManager.LoadScene("year1Menu1.1");
     }
 
     public void UserSelectYear2()
