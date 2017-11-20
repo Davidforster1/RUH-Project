@@ -72,23 +72,12 @@ public class year5GameManager : MonoBehaviour
             unansweredQuestions = imagePanel.ToList<year5Quiz>();
         }
         SetRandomImage();
-        progressText.text = "Progress: " + (questionsDone + 1) + "/" + "5";
-
+        progressText.text = "Question: " + (questionsDone + 1) + "/" + "5";
     }
 
-    public void TogglePinInput() // hides main menu canvas, enables wifi warning 
+    public void SavePin() // saves the pin 
     {
-        if (pinEntryCanvas.activeSelf == true && year5MenuCanvas.activeSelf == false)
-        {
-            pinEntryCanvas.SetActive(false);
-            year5MenuCanvas.SetActive(true);
-            emailPin = emailPinInput.text;
-        }
-        else
-        {
-            pinEntryCanvas.SetActive(true);
-            year5MenuCanvas.SetActive(false);
-        }
+        emailPin = emailPinInput.text;
     }
 
     void SetRandomImage()

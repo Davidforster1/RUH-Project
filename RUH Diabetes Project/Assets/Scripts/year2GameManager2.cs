@@ -299,7 +299,7 @@ public class year2GameManager2 : MonoBehaviour
         {
             mail.Dispose(); // cancels the mail sending
             emailTries++;
-            SceneManager.LoadScene("year2Results");
+            SceneManager.LoadScene("year2Results2");
         }
     }
 

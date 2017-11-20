@@ -66,22 +66,12 @@ public class year6GameManager : MonoBehaviour
         }
         beenClicked = false;
         SetRandomImage();
-        progressText.text = "Progress: " + (questionsDone + 1) + "/" + "6";
+        progressText.text = "Question: " + (questionsDone + 1) + "/" + "6";
     }
 
-    public void TogglePinInput() // hides main menu canvas, enables wifi warning 
+    public void SavePin() // saves the pin 
     {
-        if (pinEntryCanvas.activeSelf == true && year6MenuCanvas.activeSelf == false)
-        {
-            pinEntryCanvas.SetActive(false);
-            year6MenuCanvas.SetActive(true);
-            emailPin = emailPinInput.text;
-        }
-        else
-        {
-            pinEntryCanvas.SetActive(true);
-            year6MenuCanvas.SetActive(false);
-        }
+        emailPin = emailPinInput.text;
     }
 
     void SetRandomImage()

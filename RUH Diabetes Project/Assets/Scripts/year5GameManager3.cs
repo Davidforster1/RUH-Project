@@ -76,7 +76,7 @@ public class year5GameManager3 : MonoBehaviour
             unansweredQuestions = imagePanel.ToList<year5Quiz3>();
         }
         SetRandomImage();
-        progressText.text = "Progress: " + (questionsDoneThree + 1) + "/" + "5";
+        progressText.text = "Question: " + (questionsDoneThree + 1) + "/" + "5";
     }
 
     void SetRandomImage()
@@ -299,7 +299,7 @@ public class year5GameManager3 : MonoBehaviour
         {
             mail.Dispose(); // cancels the mail sending
             emailTries++;
-            SceneManager.LoadScene("year5Results");
+            SceneManager.LoadScene("year5Results2");
         }
     }
 
@@ -328,6 +328,13 @@ public class year5GameManager3 : MonoBehaviour
             mail.Body += "<tr>" + "<td>" + questionListYear5Part3[i] + "</td>" + "<td>" + userSelectionListYear5Part3[i] + "</td>" + "<td>" + answerListYear5Part3[i] + "</td>" + "</tr>";
             i++;
         }
+    }
+
+    public void offlineMode() // allows the user to exit without sending an email
+    {
+        yearResetScore();
+        emailTries = 0;
+        SceneManager.LoadScene("yearSelection");
     }
 
     public void yearResetScore()

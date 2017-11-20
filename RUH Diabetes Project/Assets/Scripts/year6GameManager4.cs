@@ -68,7 +68,7 @@ public class year6GameManager4 : MonoBehaviour
         }
         beenClicked = false;
         SetRandomQuestion();
-        progressText.text = "Progress: " + (questionsDoneFour + 1) + "/" + "6";
+        progressText.text = "Question: " + (questionsDoneFour + 1) + "/" + "6";
     }
     void SetRandomQuestion()
     {
@@ -207,7 +207,7 @@ public class year6GameManager4 : MonoBehaviour
         {
             mail.Dispose(); // cancels the mail sending
             emailTries++;
-            SceneManager.LoadScene("year6Results");
+            SceneManager.LoadScene("year6Results2");
         }
     }
 
@@ -245,6 +245,13 @@ public class year6GameManager4 : MonoBehaviour
             mail.Body += "<tr>" + "<td>" + questionListYear6Part4[i] + "</td>" + "<td>" + userSelectionListYear6Part4[i] + "g" + "</td>" + "<td>" + answerListYear6Part4[i] + "g" + "</td>" + "</tr>";
             i++;
         }
+    }
+
+    public void offlineMode() // allows the user to exit without sending an email
+    {
+        yearResetScore();
+        emailTries = 0;
+        SceneManager.LoadScene("yearSelection");
     }
 
     public void yearResetScore()

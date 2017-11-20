@@ -80,9 +80,29 @@ public class mainMenuNav : MonoBehaviour {
         SceneManager.LoadScene("year3Activity");
     }
 
+    public void UserSelectYear3Results1()
+    {
+        SceneManager.LoadScene("year3Results");
+    }
+
+    public void UserSelectYear3Results2()
+    {
+        SceneManager.LoadScene("year3Results2");
+    }
+
     public void UserSelectYear4Activity()
     {
         SceneManager.LoadScene("year4Activity");
+    }
+
+    public void UserSelectYear4Results1()
+    {
+        SceneManager.LoadScene("year4Results");
+    }
+
+    public void UserSelectYear4Results2()
+    {
+        SceneManager.LoadScene("year4Results2");
     }
 
     public void UserSelectYear5Activity()
@@ -98,6 +118,16 @@ public class mainMenuNav : MonoBehaviour {
     public void UserSelectYear5Activity3()
     {
         SceneManager.LoadScene("year5Activity3");
+    }
+
+    public void UserSelectYear5Results1()
+    {
+        SceneManager.LoadScene("year5Results");
+    }
+
+    public void UserSelectYear5Results2()
+    {
+        SceneManager.LoadScene("year5Results2");
     }
 
     public void UserSelectYear6Activity()
@@ -118,6 +148,16 @@ public class mainMenuNav : MonoBehaviour {
     public void UserSelectYear6Activity4()
     {
         SceneManager.LoadScene("year6Activity4");
+    }
+
+    public void UserSelectYear6Results1()
+    {
+        SceneManager.LoadScene("year6Results");
+    }
+
+    public void UserSelectYear6Results2()
+    {
+        SceneManager.LoadScene("year6Results2");
     }
 
     public void UserSelectYear1()
@@ -142,22 +182,42 @@ public class mainMenuNav : MonoBehaviour {
 
     public void UserSelectYear3()
     {
-        SceneManager.LoadScene("year3Menu");
+        SceneManager.LoadScene("year3Menu1");
+    }
+
+    public void UserSelectYear3point1()
+    {
+        SceneManager.LoadScene("year3Menu1.1");
     }
 
     public void UserSelectYear4()
     {
-        SceneManager.LoadScene("year4Menu");
+        SceneManager.LoadScene("year4Menu1");
+    }
+
+    public void UserSelectYear4point1()
+    {
+        SceneManager.LoadScene("year4Menu1.1");
     }
 
     public void UserSelectYear5()
     {
-        SceneManager.LoadScene("year5Menu");
+        SceneManager.LoadScene("year5Menu1");
+    }
+
+    public void UserSelectYear5point1()
+    {
+        SceneManager.LoadScene("year5Menu1.1");
     }
 
     public void UserSelectYear6()
     {
-        SceneManager.LoadScene("year6Menu");
+        SceneManager.LoadScene("year6Menu1");
+    }
+
+    public void UserSelectYear6point1()
+    {
+        SceneManager.LoadScene("year6Menu1.1");
     }
 
     public void ToggleWifiWarning() // hides main menu canvas, enables wifi warning 

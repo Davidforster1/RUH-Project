@@ -53,7 +53,7 @@ public class year6GameManager2 : MonoBehaviour
         }
         beenClicked = false;
         SetQuestion();
-        progressText.text = "Progress: " + (questionsDoneTwo + 1) + "/" + "3";
+        progressText.text = "Question: " + (questionsDoneTwo + 1) + "/" + "3";
     }
     void SetQuestion()
     {

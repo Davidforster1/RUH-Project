@@ -79,22 +79,19 @@ public class year4GameManager : MonoBehaviour {
         }
         beenClicked = false;
         SetRandomImage();
-        progressText.text = "Progress: " + (questionsDone + 1) + "/" + "12";
+        progressText.text = "Question: " + (questionsDone + 1) + "/" + "12";
     }
 
-    public void TogglePinInput() // hides main menu canvas, enables wifi warning 
+    public void SavePin() // saves the pin 
     {
-        if (pinEntryCanvas.activeSelf == true && year4MenuCanvas.activeSelf == false)
-        {
-            pinEntryCanvas.SetActive(false);
-            year4MenuCanvas.SetActive(true);
-            emailPin = emailPinInput.text;
-        }
-        else
-        {
-            pinEntryCanvas.SetActive(true);
-            year4MenuCanvas.SetActive(false);
-        }
+        emailPin = emailPinInput.text;
+    }
+
+    public void offlineMode() // allows the user to exit without sending an email
+    {
+        yearResetScore();
+        emailTries = 0;
+        SceneManager.LoadScene("yearSelection");
     }
 
     void SetRandomImage()
@@ -219,7 +216,7 @@ public class year4GameManager : MonoBehaviour {
         {
             mail.Dispose(); // cancels the mail sending
             emailTries++;
-            SceneManager.LoadScene("year4Results");
+            SceneManager.LoadScene("year4Results2");
         }
     }
 
