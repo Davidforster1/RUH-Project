@@ -1,4 +1,4 @@
 sceneSetups:
-- path: Assets/Scenes/Year 6 Scenes/year6Menu1.1.unity
+- path: Assets/Scenes/Year 1 Scenes/year1Results.unity
   isLoaded: 1
   isActive: 1

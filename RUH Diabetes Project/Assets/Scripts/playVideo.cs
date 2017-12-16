@@ -8,11 +8,15 @@ public class playVideo : MonoBehaviour {
     private string videoName;
 
     private string movie; //= "TD1AppWelcomeVideo002.mp4";  // The file's name which resides in the StreamingAssets folder
+   // bool f = true;
 
 	// Use this for initialization
 	void Start () {
         movie = videoName;
-        StartCoroutine(streamVideo(movie));     // play the movie 
+        //if (f == true)
+      //  {
+            StartCoroutine(streamVideo(movie));     // play the movie 
+       // }
     }
 
     private IEnumerator streamVideo(string video)
