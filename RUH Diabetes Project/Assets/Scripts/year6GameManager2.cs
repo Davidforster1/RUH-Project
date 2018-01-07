@@ -16,6 +16,9 @@ public class year6GameManager2 : MonoBehaviour
     public static List<string> userSelectionListYear6Part2 = new List<string>(); // user selections list
 
     [SerializeField]
+    public GameObject helpCanvas;
+
+    [SerializeField]
     public Text progressText; 
 
     [SerializeField]
@@ -64,6 +67,18 @@ public class year6GameManager2 : MonoBehaviour
         questionListYear6Part2.Add(currentQuestion.question); // populates the list of questions 
         answerListYear6Part2.Add(currentQuestion.carbohydrateAnswer); // populates the list of correct answers
         unansweredQuestions.RemoveAt(questionOrder);   // removes a question once it's been answered
+    }
+
+    public void ToggleHelpScreen() // toggles help text
+    {
+        if (helpCanvas.activeSelf == false)
+        {
+            helpCanvas.SetActive(true);
+        }
+        else
+        {
+            helpCanvas.SetActive(false);
+        }
     }
 
     IEnumerator TransitionToNextQuestion()

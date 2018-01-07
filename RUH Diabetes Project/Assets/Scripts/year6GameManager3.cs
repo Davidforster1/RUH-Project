@@ -16,6 +16,9 @@ public class year6GameManager3 : MonoBehaviour
     public static List<string> userSelectionListYear6Part3 = new List<string>(); // user selections list
 
     [SerializeField]
+    public GameObject helpCanvas;
+
+    [SerializeField]
     public Text progressText; // current score
 
     [SerializeField]
@@ -69,6 +72,18 @@ public class year6GameManager3 : MonoBehaviour
         answerListYear6Part3.Add(currentQuestion.answerRange); // populates the list of correct answers
 
         unansweredQuestions.RemoveAt(randomQuestionIndex);   // removes a question once it's been answered
+    }
+
+    public void ToggleHelpScreen() // toggles help text
+    {
+        if (helpCanvas.activeSelf == false)
+        {
+            helpCanvas.SetActive(true);
+        }
+        else
+        {
+            helpCanvas.SetActive(false);
+        }
     }
 
     IEnumerator TransitionToNextQuestion()

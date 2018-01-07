@@ -11,7 +11,6 @@ using System.Net.Security;
 
 public class year3GameManager : MonoBehaviour {
 
-
     public year3Quiz[] imagePanel;
     private static List<year3Quiz> unansweredQuestions;
     private year3Quiz currentQuestion;
@@ -22,6 +21,9 @@ public class year3GameManager : MonoBehaviour {
 
     private MailMessage mail = new MailMessage(); // Allows for the email to be constructed in the mail function below
     string currentDate = System.DateTime.Now.ToString("HH:mm:ss d/M/yyyy"); // formats date/time into readable format 
+
+    [SerializeField]
+    public GameObject helpCanvas;
 
     [SerializeField]
     private GameObject pinEntryCanvas;
@@ -84,12 +86,24 @@ public class year3GameManager : MonoBehaviour {
         }
         beenClicked = false;
         SetRandomImage();
-        progressText.text = "Question: " + (questionsDone + 1) + "/" + "9";
+        progressText.text = "Question: " + (questionsDone + 1) + "/" + "10";
     }
 
     public void SavePin() // saves the pin 
     {
         emailPin = emailPinInput.text;
+    }
+
+    public void ToggleHelpScreen() // toggles help text
+    {
+        if (helpCanvas.activeSelf == false)
+        {
+            helpCanvas.SetActive(true);
+        }
+        else
+        {
+            helpCanvas.SetActive(false);
+        }
     }
 
     public void offlineMode() // allows the user to exit without sending an email
@@ -124,7 +138,7 @@ public class year3GameManager : MonoBehaviour {
 
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex); // restarts the scene to update question
 
-        if (questionsDone == 8)
+        if (questionsDone == 9)
         {
             questionList.ToArray(); // sets all the lists to arrays for email format
             answerList.ToArray();
@@ -221,7 +235,7 @@ public class year3GameManager : MonoBehaviour {
            "The patient's answers are listed below:" + "<br><br>" +
            "<H2> Year 3 Activity 1 </H2>" +
             "<table>" +
-            "<tr>" + "<th>" + "Question" + "</th>" + "<th>" + "User Answer" + "</th>" + "<th>" + "Correct Answer" + "</th>" + "</tr>";
+            "<tr>" + "<th>" + "Question" + "</th>" + "<th>" + "Correct Answer" + "</th>" + "<th>" + "Child Answer" + "</th>" + "</tr>";
         loopThroughArray();
         mail.Body += "</table>" +
          "<br>" + "Total score: " + score + "/" + questionsDone +
@@ -253,7 +267,7 @@ public class year3GameManager : MonoBehaviour {
     {
         for (int i = 0; i < userSelectionList.Count;)
         {
-            mail.Body += "<tr>" + "<td>" + questionList[i] + "</td>" + "<td>" + userSelectionList[i] + "</td>" + "<td>" + answerList[i] + "</td>" + "</tr>";
+            mail.Body += "<tr>" + "<td>" + questionList[i] + "</td>" + "<td>" + answerList[i] + "</td>" + "<td>" + userSelectionList[i] + "</td>" + "</tr>";
             i++;
         }
     }

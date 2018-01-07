@@ -240,7 +240,7 @@ public class year1GameManager : MonoBehaviour {
                "The patient's answers are listed below:" + "<br><br>" +
                "<H2> Year 1 Activity 1 </H2>" +
                 "<table>" +
-                "<tr>" + "<th>" + "Question" + "</th>" + "<th>" + "User Answer" + "</th>" + "<th>" + "Correct Answer" + "</th>" + "</tr>";
+                "<tr>" + "<th>" + "Question" + "</th>" + "<th>" + "Correct Answer" + "</th>" + "<th>" + "Child Answer" + "</th>" + "</tr>";
             loopThroughArray();
             mail.Body += "</table>" +
                 "<br>" + "Total score: " + score + "/" + questionsDone +
@@ -272,7 +272,7 @@ public class year1GameManager : MonoBehaviour {
     {
         for (int i = 0; i < userSelectionList.Count;)
         {
-            mail.Body += "<tr>" + "<td>" + questionList[i] + "</td>" + "<td>" + userSelectionList[i] + "</td>" + "<td>" + answerList[i] + "</td>" + "</tr>";
+            mail.Body += "<tr>" + "<td>" + questionList[i] + "</td>" + "<td>" + answerList[i] + "</td>" + "<td>" + userSelectionList[i] + "</td>" + "</tr>";
             i++;
         }
     }

@@ -16,6 +16,9 @@ public class year5GameManager2 : MonoBehaviour
     public static List<string> userSelectionListYear5Part2 = new List<string>(); // user selections list
 
     [SerializeField]
+    public GameObject helpCanvas;
+
+    [SerializeField]
     public Text resultsText;
 
     [SerializeField]
@@ -56,7 +59,7 @@ public class year5GameManager2 : MonoBehaviour
         }
         beenClicked = false;
         SetRandomQuestion();
-        progressText.text = "Question: " + (questionsDoneTwo + 2) + "/" + "10";
+        progressText.text = "Question: " + (questionsDoneTwo + 1) + "/" + "2";
     }
     void SetRandomQuestion()
     {
@@ -68,6 +71,18 @@ public class year5GameManager2 : MonoBehaviour
         answerListYear5Part2.Add(currentQuestion.carbohydrateAnswer); // populates the list of correct answers
 
         unansweredQuestions.RemoveAt(questionOrder);   // removes a question once it's been answered
+    }
+
+    public void ToggleHelpScreen() // toggles help text
+    {
+        if (helpCanvas.activeSelf == false)
+        {
+            helpCanvas.SetActive(true);
+        }
+        else
+        {
+            helpCanvas.SetActive(false);
+        }
     }
 
     IEnumerator TransitionToNextQuestion()

@@ -1,0 +1,29 @@
+<linker>
+     <assembly fullname="System">
+         <type fullname="System.Net.Configuration.MailSettingsSectionGroup" perserve="all"/>
+         <type fullname="System.Net.Configuration.WebRequestModuleHandler" preserve="all"/>
+         <type fullname="System.Net.HttpRequestCreator" preserve="all"/>
+         <type fullname="System.Net.FileWebRequestCreator" preserve="all"/>
+         <type fullname="System.Net" preserve="all"/>
+         <type fullname="System.Net.Mail" preserve="all"/>
+         <type fullname="System.Net.Security" preserve="all"/>
+         
+         <type fullname="System.Net.Configuration.NetSectionGroup" preserve="all"/>
+         <type fullname="System.Net.Configuration.SettingsSection" preserve="all"/>
+         <type fullname="System.Net.Configuration.Ipv6Element" preserve="all"/>
+         <type fullname="System.Net.Configuration.WebRequestModulesSection" preserve="all"/>
+         <type fullname="System.Net.Configuration.WebRequestModuleElementCollection" preserve="all"/>
+         <type fullname="System.Net.Configuration.SmtpSection" preserve="all"/>
+         <type fullname="System.Net.Configuration.SmtpNetworkElement" perserve="all"/>
+        </assembly>
+ 
+     <assembly fullname="System.Configuration">
+         <type fullname="System.Configuration.ExeConfigurationHost" preserve="all"/>
+     </assembly>
+     
+     <assembly fullname="mscorlib">
+         <namespace fullname="System.Security.Cryptography" preserve="all"/>
+         <namespace fullname="System.Reflection.TargetInvocationException" preserve="all"/>
+     </assembly>
+ 
+ </linker>

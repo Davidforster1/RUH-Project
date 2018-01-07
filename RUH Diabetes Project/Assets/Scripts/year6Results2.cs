@@ -21,6 +21,7 @@ public class year6Results2 : MonoBehaviour
     private GameObject quitConfirmationCanvas; // asks for confirmation on quit
 
     public static int score, questionsDone;
+    public playVideo playvideo; // holds the playvideo script object in unity  
 
     // Use this for initialization - Stores the values 
     void Start()
@@ -34,6 +35,7 @@ public class year6Results2 : MonoBehaviour
         {
             emailInstructions.text = "The email did not send. Please try again";
             emailPlaceholder.text = "Please enter your email address here:";
+            playvideo.enabled = false; // stops playback of the results video if unsuccessful
         }
     }
 

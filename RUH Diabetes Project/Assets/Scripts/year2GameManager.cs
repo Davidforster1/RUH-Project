@@ -17,6 +17,9 @@ public class year2GameManager : MonoBehaviour
     public static List<string> userSelectionListYear2Part1 = new List<string>(); // user selections list
 
     [SerializeField]
+    public GameObject helpCanvas;
+
+    [SerializeField]
     private GameObject pinEntryCanvas;
 
     [SerializeField]
@@ -77,12 +80,24 @@ public class year2GameManager : MonoBehaviour
         }
         beenClicked = false;
         SetRandomImage(); // sets the question
-        progressText.text = "Question: " + (questionsDoneOne + 1) + "/" + "8";
+        progressText.text = "Question: " + (questionsDoneOne + 1) + "/" + "9";
     }
 
     public void SavePin() // saves the pin 
     {
         emailPin = emailPinInput.text;
+    }
+
+    public void ToggleHelpScreen() // toggles help text
+    {
+        if (helpCanvas.activeSelf == false)
+        {
+            helpCanvas.SetActive(true);
+        }
+        else
+        {
+            helpCanvas.SetActive(false);
+        }
     }
 
     void SetRandomImage()
@@ -114,7 +129,7 @@ public class year2GameManager : MonoBehaviour
 
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex); // restarts the scene to update question
 
-        if (questionsDoneOne == 7)
+        if (questionsDoneOne == 8)
         {
             questionListYear2Part1.ToArray(); // sets all the lists to arrays for email format
             answerListYear2Part1.ToArray();

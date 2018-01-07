@@ -20,6 +20,7 @@ public class year4Results2 : MonoBehaviour
 
     private int score;
     private int questionsDone;
+    public playVideo playvideo; // holds the playvideo script object in unity  
 
     // Use this for initialization - Stores the values 
     void Start()
@@ -33,6 +34,7 @@ public class year4Results2 : MonoBehaviour
         {
             emailInstructions.text = "The email did not send. Please try again";
             emailPlaceholder.text = "Please enter your email address here:";
+            playvideo.enabled = false; // stops playback of the results video if unsuccessful
         }
     }
 

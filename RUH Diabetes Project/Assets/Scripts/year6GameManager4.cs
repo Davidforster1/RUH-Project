@@ -23,6 +23,9 @@ public class year6GameManager4 : MonoBehaviour
     string currentDate = System.DateTime.Now.ToString("HH:mm:ss d/M/yyyy"); // formats date/time into readable format 
 
     [SerializeField]
+    public GameObject helpCanvas;
+
+    [SerializeField]
     public Text progressText; 
 
     [SerializeField]
@@ -82,6 +85,18 @@ public class year6GameManager4 : MonoBehaviour
         answerListYear6Part4.Add(currentQuestion.userAnswer); // populates the list of correct answers
 
         unansweredQuestions.RemoveAt(randomQuestionIndex);   // removes a question once it's been answered
+    }
+
+    public void ToggleHelpScreen() // toggles help text
+    {
+        if (helpCanvas.activeSelf == false)
+        {
+            helpCanvas.SetActive(true);
+        }
+        else
+        {
+            helpCanvas.SetActive(false);
+        }
     }
 
     IEnumerator TransitionToNextQuestion()
@@ -168,22 +183,22 @@ public class year6GameManager4 : MonoBehaviour
            "The patient's answers are listed below:" + "<br><br>" +
            "<H2> Year 6 Activity 1 </H2>" +
             "<table>" +
-            "<tr>" + "<th>" + "Question" + "</th>" + "<th>" + "User Answer" + "</th>" + "<th>" + "Correct Answer" + "</th>" + "</tr>";
+            "<tr>" + "<th>" + "Question" + "</th>" + "<th>" + "Correct Answer" + "</th>" + "<th>" + "Child Answer" + "</th>" + "</tr>";
         loopThroughArray();
         mail.Body += "</table>" +
             "<H2> Year 6 Activity 2 </H2>" +
             "<table>" +
-            "<tr>" + "<th>" + "Question" + "</th>" + "<th>" + "User Answer" + "</th>" + "<th>" + "Correct Answer" + "</th>" + "</tr>";
+            "<tr>" + "<th>" + "Question" + "</th>" + "<th>" + "Correct Answer" + "</th>" + "<th>" + "Child Answer" + "</th>" + "</tr>";
         loopThroughArray2();
         mail.Body += "</table>" +
             "<H2> Year 6 Activity 3 </H2>" +
             "<table>" +
-            "<tr>" + "<th>" + "Question" + "</th>" + "<th>" + "User Answer" + "</th>" + "<th>" + "Correct Answer" + "</th>" + "</tr>";
+            "<tr>" + "<th>" + "Question" + "</th>" + "<th>" + "Correct Answer" + "</th>" + "<th>" + "Child Answer" + "</th>" + "</tr>";
         loopThroughArray3();
         mail.Body += "</table>" +
             "<H2> Year 6 Activity 4 </H2>" +
             "<table>" +
-            "<tr>" + "<th>" + "Question" + "</th>" + "<th>" + "User Answer" + "</th>" + "<th>" + "Correct Answer" + "</th>" + "</tr>";
+            "<tr>" + "<th>" + "Question" + "</th>" + "<th>" + "Correct Answer" + "</th>" + "<th>" + "Child Answer" + "</th>" + "</tr>";
         loopThroughArray4();
         mail.Body += "</table>" +
          "<br>" + "Total score: " + year6Results.score + "/" + year6Results.questionsDone +
@@ -215,7 +230,7 @@ public class year6GameManager4 : MonoBehaviour
     {
         for (int i = 0; i < year6GameManager.userSelectionListYear6Part1.Count;)
         {
-            mail.Body += "<tr>" + "<td>" + year6GameManager.questionListYear6Part1[i] + "</td>" + "<td>" + year6GameManager.userSelectionListYear6Part1[i] + "</td>" + "<td>" + year6GameManager.answerListYear6Part1[i] + "</td>" + "</tr>";
+            mail.Body += "<tr>" + "<td>" + year6GameManager.questionListYear6Part1[i] + "</td>" + "<td>" + year6GameManager.answerListYear6Part1[i] + "</td>" + "<td>" + year6GameManager.userSelectionListYear6Part1[i] + "</td>" + "</tr>";
             i++;
         }
     }
@@ -224,7 +239,7 @@ public class year6GameManager4 : MonoBehaviour
     {
         for (int i = 0; i < year6GameManager2.userSelectionListYear6Part2.Count;)
         {
-            mail.Body += "<tr>" + "<td>" + year6GameManager2.questionListYear6Part2[i] + "</td>" + "<td>" + year6GameManager2.userSelectionListYear6Part2[i] + "g" + "</td>" + "<td>" + year6GameManager2.answerListYear6Part2[i] + "g" + "</td>" + "</tr>";
+            mail.Body += "<tr>" + "<td>" + year6GameManager2.questionListYear6Part2[i] + "</td>" + "<td>" + year6GameManager2.answerListYear6Part2[i] + "g" + "</td>" + "<td>" + year6GameManager2.userSelectionListYear6Part2[i] + "g" + "</td>" + "</tr>";
             i++;
         }
     }
@@ -233,7 +248,7 @@ public class year6GameManager4 : MonoBehaviour
     {
         for (int i = 0; i < year6GameManager3.userSelectionListYear6Part3.Count;)
         {
-            mail.Body += "<tr>" + "<td>" + year6GameManager3.questionListYear6Part3[i] + "</td>" + "<td>" + year6GameManager3.userSelectionListYear6Part3[i] + "g" + "</td>" + "<td>" + year6GameManager3.answerListYear6Part3[i] + "</td>" + "</tr>";
+            mail.Body += "<tr>" + "<td>" + year6GameManager3.questionListYear6Part3[i] + "</td>" + "<td>" + year6GameManager3.answerListYear6Part3[i] + "g" + "</td>" + "<td>" + year6GameManager3.userSelectionListYear6Part3[i] + "</td>" + "</tr>";
             i++;
         }
     }
@@ -242,7 +257,7 @@ public class year6GameManager4 : MonoBehaviour
     {
         for (int i = 0; i < userSelectionListYear6Part4.Count;)
         {
-            mail.Body += "<tr>" + "<td>" + questionListYear6Part4[i] + "</td>" + "<td>" + userSelectionListYear6Part4[i] + "g" + "</td>" + "<td>" + answerListYear6Part4[i] + "g" + "</td>" + "</tr>";
+            mail.Body += "<tr>" + "<td>" + questionListYear6Part4[i] + "</td>" + "<td>" + answerListYear6Part4[i] + "g" + "</td>" + "<td>" + userSelectionListYear6Part4[i] + "g" + "</td>" + "</tr>";
             i++;
         }
     }

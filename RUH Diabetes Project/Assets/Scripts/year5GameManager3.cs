@@ -23,6 +23,9 @@ public class year5GameManager3 : MonoBehaviour
     string currentDate = System.DateTime.Now.ToString("HH:mm:ss d/M/yyyy"); // formats date/time into readable format 
 
     [SerializeField]
+    public GameObject helpCanvas;
+
+    [SerializeField]
     AudioSource correct;
 
     [SerializeField]
@@ -90,6 +93,18 @@ public class year5GameManager3 : MonoBehaviour
         answerListYear5Part3.Add(currentQuestion.Answer); // populates the list of correct answers
 
         unansweredQuestions.RemoveAt(randomImageIndex);   // removes a question once it's been answered
+    }
+
+    public void ToggleHelpScreen() // toggles help text
+    {
+        if (helpCanvas.activeSelf == false)
+        {
+            helpCanvas.SetActive(true);
+        }
+        else
+        {
+            helpCanvas.SetActive(false);
+        }
     }
 
     IEnumerator TransitionToNextQuestion()
@@ -265,17 +280,17 @@ public class year5GameManager3 : MonoBehaviour
            "The patient's answers are listed below:" + "<br><br>" +
            "<H2> Year 5 Activity 1 </H2>" +
             "<table>" +
-            "<tr>" + "<th>" + "Question" + "</th>" + "<th>" + "User Answer" + "</th>" + "<th>" + "Correct Answer" + "</th>" + "</tr>";
+            "<tr>" + "<th>" + "Question" + "</th>" + "<th>" + "Correct Answer" + "</th>" + "<th>" + "Child Answer" + "</th>" + "</tr>";
         loopThroughArray();
         mail.Body += "</table>" +
             "<H2> Year 5 Activity 2 </H2>" +
             "<table>" +
-            "<tr>" + "<th>" + "Question" + "</th>" + "<th>" + "User Answer" + "</th>" + "<th>" + "Correct Answer" + "</th>" + "</tr>";
+            "<tr>" + "<th>" + "Question" + "</th>" + "<th>" + "Correct Answer" + "</th>" + "<th>" + "Child Answer" + "</th>" + "</tr>";
         loopThroughArray2();
         mail.Body += "</table>" +
             "<H2> Year 5 Activity 3 </H2>" +
             "<table>" +
-            "<tr>" + "<th>" + "Question" + "</th>" + "<th>" + "User Answer" + "</th>" + "<th>" + "Correct Answer" + "</th>" + "</tr>";
+            "<tr>" + "<th>" + "Question" + "</th>" + "<th>" + "Correct Answer" + "</th>" + "<th>" + "Child Answer" + "</th>" + "</tr>";
         loopThroughArray3();
         mail.Body += "</table>" +
             "<br>" + "Total score: " + year5Results.score + "/" + year5Results.questionsDone +
@@ -307,7 +322,7 @@ public class year5GameManager3 : MonoBehaviour
     {
         for (int i = 0; i < year5GameManager.userSelectionListYear5Part1.Count;)
         {
-            mail.Body += "<tr>" + "<td>" + year5GameManager.questionListYear5Part1[i] + "</td>" + "<td>" + year5GameManager.userSelectionListYear5Part1[i] + "</td>" + "<td>" + year5GameManager.answerListYear5Part1[i] + "</td>" + "</tr>";
+            mail.Body += "<tr>" + "<td>" + year5GameManager.questionListYear5Part1[i] + "</td>" + "<td>" + year5GameManager.answerListYear5Part1[i] + "</td>" + "<td>" + year5GameManager.userSelectionListYear5Part1[i] + "</td>" + "</tr>";
             i++;
         }
     }
@@ -316,7 +331,7 @@ public class year5GameManager3 : MonoBehaviour
     {
         for (int i = 0; i < year5GameManager2.userSelectionListYear5Part2.Count; i++)
         {
-            mail.Body += "<tr>" + "<td>" + year5GameManager2.questionListYear5Part2[i] + "</td>" + "<td>" + year5GameManager2.userSelectionListYear5Part2[i] + "</td>" + "<td>" + year5GameManager2.answerListYear5Part2[i] + "</td>" + "</tr>";
+            mail.Body += "<tr>" + "<td>" + year5GameManager2.questionListYear5Part2[i] + "</td>" + "<td>" + year5GameManager2.answerListYear5Part2[i] + "</td>" + "<td>" + year5GameManager2.userSelectionListYear5Part2[i] + "</td>" + "</tr>";
             i++;
         }
     }
@@ -325,7 +340,7 @@ public class year5GameManager3 : MonoBehaviour
     {
         for (int i = 0; i < userSelectionListYear5Part3.Count; i++)
         {
-            mail.Body += "<tr>" + "<td>" + questionListYear5Part3[i] + "</td>" + "<td>" + userSelectionListYear5Part3[i] + "</td>" + "<td>" + answerListYear5Part3[i] + "</td>" + "</tr>";
+            mail.Body += "<tr>" + "<td>" + questionListYear5Part3[i] + "</td>" + "<td>" + answerListYear5Part3[i] + "</td>" + "<td>" + userSelectionListYear5Part3[i] + "</td>" + "</tr>";
             i++;
         }
     }

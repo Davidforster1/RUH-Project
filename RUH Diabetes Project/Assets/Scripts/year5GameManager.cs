@@ -16,6 +16,9 @@ public class year5GameManager : MonoBehaviour
     public static List<string> userSelectionListYear5Part1 = new List<string>(); // user selections list
 
     [SerializeField]
+    public GameObject helpCanvas;
+
+    [SerializeField]
     private GameObject pinEntryCanvas;
 
     [SerializeField]
@@ -78,6 +81,18 @@ public class year5GameManager : MonoBehaviour
     public void SavePin() // saves the pin 
     {
         emailPin = emailPinInput.text;
+    }
+
+    public void ToggleHelpScreen() // toggles help text
+    {
+        if (helpCanvas.activeSelf == false)
+        {
+            helpCanvas.SetActive(true);
+        }
+        else
+        {
+            helpCanvas.SetActive(false);
+        }
     }
 
     void SetRandomImage()

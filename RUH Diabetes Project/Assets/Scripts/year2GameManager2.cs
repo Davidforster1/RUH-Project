@@ -24,6 +24,9 @@ public class year2GameManager2 : MonoBehaviour
     string currentDate = System.DateTime.Now.ToString("HH:mm:ss d/M/yyyy"); // formats date/time into readable format 
 
     [SerializeField]
+    public GameObject helpCanvas;
+
+    [SerializeField]
     public Text progressText;
 
     [SerializeField]
@@ -130,6 +133,18 @@ public class year2GameManager2 : MonoBehaviour
         }
 
         questionsDoneTwo++;
+    }
+
+    public void ToggleHelpScreen() // toggles help text
+    {
+        if (helpCanvas.activeSelf == false)
+        {
+            helpCanvas.SetActive(true);
+        }
+        else
+        {
+            helpCanvas.SetActive(false);
+        }
     }
 
     public void firstAnswer()
@@ -270,12 +285,12 @@ public class year2GameManager2 : MonoBehaviour
            "The patient's answers are listed below:" + "<br><br>" +
            "<H2> Year 2 Activity 1 </H2>" +
             "<table>" +
-            "<tr>" + "<th>" + "Question" + "</th>" + "<th>" + "User Answer" + "</th>" + "<th>" + "Correct Answer" + "</th>" + "</tr>";
+            "<tr>" + "<th>" + "Question" + "</th>" + "<th>" + "Correct Answer" + "</th>" + "<th>" + "Child Answer" + "</th>" + "</tr>";
         loopThroughArray();
         mail.Body += "</table>" +
             "<H2> Year 2 Activity 2 </H2>" +
             "<table>" +
-            "<tr>" + "<th>" + "Question" + "</th>" + "<th>" + "User Answer" + "</th>" + "<th>" + "Correct Answer" + "</th>" + "</tr>";
+            "<tr>" + "<th>" + "Question" + "</th>" + "<th>" + "Correct Answer" + "</th>" + "<th>" + "Child Answer" + "</th>" + "</tr>";
         loopThroughArray2();
         mail.Body += "</table>" +
          "<br>" + "Total score: " + year2Results.score + "/" + year2Results.questionsDone +
@@ -307,7 +322,7 @@ public class year2GameManager2 : MonoBehaviour
     {
         for (int i = 0; i < year2GameManager.userSelectionListYear2Part1.Count;)
         {
-            mail.Body += "<tr>" + "<td>" + year2GameManager.questionListYear2Part1[i] + "</td>" + "<td>" + year2GameManager.userSelectionListYear2Part1[i] + "</td>" + "<td>" + year2GameManager.answerListYear2Part1[i] + "</td>" + "</tr>";
+            mail.Body += "<tr>" + "<td>" + year2GameManager.questionListYear2Part1[i] + "</td>" + "<td>" + year2GameManager.answerListYear2Part1[i] + "</td>" + "<td>" + year2GameManager.userSelectionListYear2Part1[i] + "</td>" + "</tr>";
             i++;
         }
     }
@@ -316,7 +331,7 @@ public class year2GameManager2 : MonoBehaviour
     {
         for (int i = 0; i < userSelectionListYear2Part2.Count;)
         {
-            mail.Body += "<tr>" + "<td>" + questionListYear2Part2[i] + "</td>" + "<td>" + userSelectionListYear2Part2[i] + "</td>" + "<td>" + answerListYear2Part2[i] + "</td>" + "</tr>";
+            mail.Body += "<tr>" + "<td>" + questionListYear2Part2[i] + "</td>" + "<td>" + answerListYear2Part2[i] + "</td>" + "<td>" + userSelectionListYear2Part2[i] + "</td>" + "</tr>";
             i++;
         }
     }
