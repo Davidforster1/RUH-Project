@@ -4,6 +4,9 @@ using UnityEngine.SceneManagement;
 public class mainMenuNav : MonoBehaviour {
 
     [SerializeField]
+    public GameObject helpCanvas;
+
+    [SerializeField]
     private GameObject wifiAlertCanvas;
 
     [SerializeField]
@@ -38,6 +41,11 @@ public class mainMenuNav : MonoBehaviour {
     public void UserSelectMainMenu()
     {
         SceneManager.LoadScene("mainMenu");
+    }
+
+    public void ToggleHelpScreen() // toggles help text
+    {
+        helpCanvas.SetActive (false);
     }
 
     public void UserSelectYear1Activity()
