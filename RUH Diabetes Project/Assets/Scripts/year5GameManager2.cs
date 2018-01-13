@@ -34,10 +34,13 @@ public class year5GameManager2 : MonoBehaviour
     public Text carbohydrateAnswer;
 
     [SerializeField]
-    RawImage sadSmiley;
+    GameObject questionImageToggler; // object of the question image for showing if user right/wrong
 
     [SerializeField]
-    RawImage happySmiley;
+    GameObject sadSmiley;
+
+    [SerializeField]
+    GameObject happySmiley;
 
     [SerializeField]
     RawImage questionImage;
@@ -113,12 +116,14 @@ public class year5GameManager2 : MonoBehaviour
             if (carbohydrateAnswer.text == currentQuestion.carbohydrateAnswer)
             {
                 correct.Play(); // plays wrong sound
-                questionImage.texture = happySmiley.texture;
+                happySmiley.SetActive(true); sadSmiley.SetActive(false);
+                questionImageToggler.SetActive(false);
                 score2++;
             }
             else
             {
-                questionImage.texture = sadSmiley.texture;
+                sadSmiley.SetActive(true); happySmiley.SetActive(false);
+                questionImageToggler.SetActive(false);
             }
 
             StartCoroutine(TransitionToNextQuestion()); // loads new question after user selection

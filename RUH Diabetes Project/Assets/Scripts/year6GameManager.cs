@@ -43,10 +43,13 @@ public class year6GameManager : MonoBehaviour
     Text foodnameOne;
 
     [SerializeField]
-    RawImage sadSmiley;
+    GameObject questionImageToggler; // object of the question image for showing if user right/wrong
 
     [SerializeField]
-    RawImage happySmiley;
+    GameObject sadSmiley;
+
+    [SerializeField]
+    GameObject happySmiley;
 
     [SerializeField]
     private float timeBetweenQuestions = 2f; // delay between questions 
@@ -178,12 +181,14 @@ public class year6GameManager : MonoBehaviour
             if (currentQuestion.isCorrect)
             {
                 correct.Play(); // plays wrong sound
-                questionImage.texture = happySmiley.texture;
+                happySmiley.SetActive(true); sadSmiley.SetActive(false);
+                questionImageToggler.SetActive(false);
                 score++;
             }
             else
             {
-                questionImage.texture = sadSmiley.texture;
+                sadSmiley.SetActive(true); happySmiley.SetActive(false);
+                questionImageToggler.SetActive(false);
             }
 
             StartCoroutine(TransitionToNextQuestion()); // loads new question after user selection
@@ -199,12 +204,14 @@ public class year6GameManager : MonoBehaviour
             if (currentQuestion.isCorrect2)
             {
                 correct.Play(); // plays wrong sound
-                questionImage.texture = happySmiley.texture;
+                happySmiley.SetActive(true); sadSmiley.SetActive(false);
+                questionImageToggler.SetActive(false);
                 score++;
             }
             else
             {
-                questionImage.texture = sadSmiley.texture;
+                sadSmiley.SetActive(true); happySmiley.SetActive(false);
+                questionImageToggler.SetActive(false);
             }
 
             StartCoroutine(TransitionToNextQuestion()); // loads new question after user selection
@@ -220,12 +227,14 @@ public class year6GameManager : MonoBehaviour
             if (currentQuestion.isCorrect3)
             {
                 correct.Play(); // plays wrong sound
-                questionImage.texture = happySmiley.texture;
+                happySmiley.SetActive(true); sadSmiley.SetActive(false);
+                questionImageToggler.SetActive(false);
                 score++;
             }
             else
             {
-                questionImage.texture = sadSmiley.texture;
+                sadSmiley.SetActive(true); happySmiley.SetActive(false);
+                questionImageToggler.SetActive(false);
             }
 
             StartCoroutine(TransitionToNextQuestion()); // loads new question after user selection
@@ -241,12 +250,14 @@ public class year6GameManager : MonoBehaviour
             if (currentQuestion.isCorrect4)
             {
                 correct.Play(); // plays wrong sound
-                questionImage.texture = happySmiley.texture;
+                happySmiley.SetActive(true); sadSmiley.SetActive(false);
+                questionImageToggler.SetActive(false);
                 score++;
             }
             else
             {
-                questionImage.texture = sadSmiley.texture;
+                sadSmiley.SetActive(true); happySmiley.SetActive(false);
+                questionImageToggler.SetActive(false);
             }
 
             StartCoroutine(TransitionToNextQuestion()); // loads new question after user selection
@@ -262,12 +273,14 @@ public class year6GameManager : MonoBehaviour
             if (currentQuestion.isCorrect5)
             {
                 correct.Play(); // plays wrong sound
-                questionImage.texture = happySmiley.texture;
+                happySmiley.SetActive(true); sadSmiley.SetActive(false);
+                questionImageToggler.SetActive(false);
                 score++;
             }
             else
             {
-                questionImage.texture = sadSmiley.texture;
+                sadSmiley.SetActive(true); happySmiley.SetActive(false);
+                questionImageToggler.SetActive(false);
             }
 
             StartCoroutine(TransitionToNextQuestion()); // loads new question after user selection

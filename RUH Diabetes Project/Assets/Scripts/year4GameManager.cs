@@ -59,10 +59,13 @@ public class year4GameManager : MonoBehaviour {
     private Text emailPlaceholder; // placeholder text in the results scene where user enters email address
 
     [SerializeField]
-    RawImage sadSmiley; // happy smiley face on answer 
+    GameObject questionImageToggler; // object of the question image for showing if user right/wrong
 
     [SerializeField]
-    RawImage happySmiley; // sad smiley face on answer 
+    GameObject sadSmiley;
+
+    [SerializeField]
+    GameObject happySmiley;
 
     public static int questionsDone;
 
@@ -151,12 +154,14 @@ public class year4GameManager : MonoBehaviour {
             if (foodCarbohydrates.text == currentQuestion.foodCarbohydrates)
             {
                 correct.Play(); // plays wrong sound
-                NutritionImage.texture = happySmiley.texture;
+                happySmiley.SetActive(true); sadSmiley.SetActive(false);
+                questionImageToggler.SetActive(false);
                 score++;
             }
               else
             {
-                NutritionImage.texture = sadSmiley.texture;
+                sadSmiley.SetActive(true); happySmiley.SetActive(false);
+                questionImageToggler.SetActive(false);
             }
 
             StartCoroutine(TransitionToNextQuestion()); // loads new question after user selection

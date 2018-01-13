@@ -37,10 +37,13 @@ public class year6GameManager3 : MonoBehaviour
     private float timeBetweenQuestions = 2f; // delay between questions 
 
     [SerializeField]
-    RawImage sadSmiley;
+    GameObject questionImageToggler; // object of the question image for showing if user right/wrong
 
     [SerializeField]
-    RawImage happySmiley;
+    GameObject sadSmiley;
+
+    [SerializeField]
+    GameObject happySmiley;
 
     public static int questionsDoneThree;
 
@@ -114,13 +117,15 @@ public class year6GameManager3 : MonoBehaviour
             userSelectionListYear6Part3.Add(userAnswer.text);
             if (converted >= currentQuestion.minAnswer && converted <= currentQuestion.maxAnswer)
             {
-                foodImage.texture = happySmiley.texture;
-                correct.Play();
+                correct.Play(); // plays wrong sound
+                happySmiley.SetActive(true); sadSmiley.SetActive(false);
+                questionImageToggler.SetActive(false);
+                score3++;
             }
             else
             {
-                foodImage.texture = sadSmiley.texture;
-                score3++;
+                sadSmiley.SetActive(true); happySmiley.SetActive(false);
+                questionImageToggler.SetActive(false);
             }
 
             StartCoroutine(TransitionToNextQuestion()); // loads new question after user selection

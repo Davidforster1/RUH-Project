@@ -63,10 +63,13 @@ public class year2GameManager2 : MonoBehaviour
     private float timeBetweenQuestions = 2f; // delay between questions 
 
     [SerializeField]
-    RawImage sadSmiley;
+    GameObject questionImageToggler; // object of the question image for showing if user right/wrong
 
     [SerializeField]
-    RawImage happySmiley;
+    GameObject sadSmiley;
+
+    [SerializeField]
+    GameObject happySmiley;
 
     [SerializeField]
     public InputField emailInput; // Where the user types in their email
@@ -156,12 +159,14 @@ public class year2GameManager2 : MonoBehaviour
             if (currentQuestion.isCorrect)
             {
                 correct.Play(); // plays wrong sound
-                answer1.texture = happySmiley.texture;
+                happySmiley.SetActive(true); sadSmiley.SetActive(false);
+                questionImageToggler.SetActive(false);
                 score2++;
             }
             else
             {
-                answer1.texture = sadSmiley.texture;
+                sadSmiley.SetActive(true); happySmiley.SetActive(false);
+                questionImageToggler.SetActive(false);
             }
 
             StartCoroutine(TransitionToNextQuestion()); // loads new question after user selection
@@ -177,12 +182,14 @@ public class year2GameManager2 : MonoBehaviour
             if (currentQuestion.isCorrect2)
             {
                 correct.Play(); // plays wrong sound
-                answer2.texture = happySmiley.texture;
+                happySmiley.SetActive(true); sadSmiley.SetActive(false);
+                questionImageToggler.SetActive(false);
                 score2++;
             }
             else
             {
-                answer2.texture = sadSmiley.texture;
+                sadSmiley.SetActive(true); happySmiley.SetActive(false);
+                questionImageToggler.SetActive(false);
             }
 
             StartCoroutine(TransitionToNextQuestion()); // loads new question after user selection
@@ -199,12 +206,14 @@ public class year2GameManager2 : MonoBehaviour
             if (currentQuestion.isCorrect3)
             {
                 correct.Play(); // plays wrong sound
-                answer3.texture = happySmiley.texture;
+                happySmiley.SetActive(true); sadSmiley.SetActive(false);
+                questionImageToggler.SetActive(false);
                 score2++;
             }
             else
             {
-                answer3.texture = sadSmiley.texture;
+                sadSmiley.SetActive(true); happySmiley.SetActive(false);
+                questionImageToggler.SetActive(false);
             }
 
             StartCoroutine(TransitionToNextQuestion()); // loads new question after user selection
@@ -221,12 +230,14 @@ public class year2GameManager2 : MonoBehaviour
             if (currentQuestion.isCorrect4)
             {
                 correct.Play(); // plays wrong sound
-                answer4.texture = happySmiley.texture;
+                happySmiley.SetActive(true); sadSmiley.SetActive(false);
+                questionImageToggler.SetActive(false);
                 score2++;
             }
             else
             {
-                answer4.texture = sadSmiley.texture;
+                sadSmiley.SetActive(true); happySmiley.SetActive(false);
+                questionImageToggler.SetActive(false);
             }
 
             StartCoroutine(TransitionToNextQuestion()); // loads new question after user selection

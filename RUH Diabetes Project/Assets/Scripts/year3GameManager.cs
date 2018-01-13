@@ -41,6 +41,15 @@ public class year3GameManager : MonoBehaviour {
     public Text progressText;
 
     [SerializeField]
+    GameObject questionImageToggler; // object of the question image for showing if user right/wrong
+
+    [SerializeField]
+    GameObject sadSmiley;
+
+    [SerializeField]
+    GameObject happySmiley;
+
+    [SerializeField]
     AudioSource correct;
 
     [SerializeField]
@@ -60,12 +69,6 @@ public class year3GameManager : MonoBehaviour {
 
     [SerializeField]
     private Text emailPlaceholder; // placeholder text in the results scene where user enters email address
-
-    [SerializeField]
-    RawImage sadSmiley; // happy smiley face on answer 
-
-    [SerializeField]
-    RawImage happySmiley; // sad smiley face on answer 
 
     public static int questionsDone;
 
@@ -121,6 +124,8 @@ public class year3GameManager : MonoBehaviour {
         answer1.texture = currentQuestion.image;
         answer2.texture = currentQuestion.image2;
 
+        
+
         foodnameOne.text = currentQuestion.imageLabel;
         foodnameTwo.text = currentQuestion.image2Label;
 
@@ -158,12 +163,14 @@ public class year3GameManager : MonoBehaviour {
             if (currentQuestion.isCorrect)
             {
                 correct.Play(); // plays wrong sound
-                answer1.texture = happySmiley.texture;
+                happySmiley.SetActive(true); sadSmiley.SetActive(false);
+                questionImageToggler.SetActive(false);
                 score++;
             }
             else
             {
-                answer1.texture = sadSmiley.texture;
+                sadSmiley.SetActive(true); happySmiley.SetActive(false);
+                questionImageToggler.SetActive(false);
             }
 
             StartCoroutine(TransitionToNextQuestion()); // loads new question after user selection
@@ -179,12 +186,14 @@ public class year3GameManager : MonoBehaviour {
             if (currentQuestion.isCorrect2)
             {
                 correct.Play(); // plays wrong sound
-                answer2.texture = happySmiley.texture;
+                happySmiley.SetActive(true); sadSmiley.SetActive(false);
+                questionImageToggler.SetActive(false);
                 score++;
             }
             else
             {
-                answer2.texture = sadSmiley.texture;
+                sadSmiley.SetActive(true); happySmiley.SetActive(false);
+                questionImageToggler.SetActive(false);
             }
 
             StartCoroutine(TransitionToNextQuestion()); // loads new question after user selection

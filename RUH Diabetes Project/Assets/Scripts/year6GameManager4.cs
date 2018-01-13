@@ -44,10 +44,13 @@ public class year6GameManager4 : MonoBehaviour
     private float timeBetweenQuestions = 2f; // delay between questions 
 
     [SerializeField]
-    RawImage sadSmiley;
+    GameObject questionImageToggler; // object of the question image for showing if user right/wrong
 
     [SerializeField]
-    RawImage happySmiley;
+    GameObject sadSmiley;
+
+    [SerializeField]
+    GameObject happySmiley;
 
     [SerializeField]
     public InputField emailInput; // Where the user types in their email
@@ -126,14 +129,16 @@ public class year6GameManager4 : MonoBehaviour
                userSelectionListYear6Part4.Add(userAnswer.text);
             if (userAnswer.text == currentQuestion.userAnswer)
                {
-                   correct.Play(); // plays wrong sound
-                   foodImage.texture = happySmiley.texture;
-                   score4++;
-               }
+                correct.Play(); // plays wrong sound
+                happySmiley.SetActive(true); sadSmiley.SetActive(false);
+                questionImageToggler.SetActive(false);
+                score4++;
+            }
                else
                {
-                   foodImage.texture = sadSmiley.texture;
-               }
+                sadSmiley.SetActive(true); happySmiley.SetActive(false);
+                questionImageToggler.SetActive(false);
+            }
 
                StartCoroutine(TransitionToNextQuestion()); // loads new question after user selection
            }

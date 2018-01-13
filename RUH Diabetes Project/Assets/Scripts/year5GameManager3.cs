@@ -53,10 +53,13 @@ public class year5GameManager3 : MonoBehaviour
     Text answer5;
 
     [SerializeField]
-    RawImage sadSmiley;
+    GameObject questionImageToggler; // object of the question image for showing if user right/wrong
 
     [SerializeField]
-    RawImage happySmiley;
+    GameObject sadSmiley;
+
+    [SerializeField]
+    GameObject happySmiley;
 
     [SerializeField]
     public InputField emailInput; // Where the user types in their email
@@ -136,12 +139,14 @@ public class year5GameManager3 : MonoBehaviour
             if (currentQuestion.isCorrect)
             {
                 correct.Play(); // plays wrong sound
-                questionImage.texture = happySmiley.texture;
+                happySmiley.SetActive(true); sadSmiley.SetActive(false);
+                questionImageToggler.SetActive(false);
                 score3++;
             }
             else
             {
-                questionImage.texture = sadSmiley.texture;
+                sadSmiley.SetActive(true); happySmiley.SetActive(false);
+                questionImageToggler.SetActive(false);
             }
 
             StartCoroutine(TransitionToNextQuestion()); // loads new question after user selection
@@ -157,12 +162,14 @@ public class year5GameManager3 : MonoBehaviour
             if (currentQuestion.isCorrect2)
             {
                 correct.Play(); // plays wrong sound
-                questionImage.texture = happySmiley.texture;
+                happySmiley.SetActive(true); sadSmiley.SetActive(false);
+                questionImageToggler.SetActive(false);
                 score3++;
             }
             else
             {
-                questionImage.texture = sadSmiley.texture;
+                sadSmiley.SetActive(true); happySmiley.SetActive(false);
+                questionImageToggler.SetActive(false);
             }
 
             StartCoroutine(TransitionToNextQuestion()); // loads new question after user selection
@@ -179,12 +186,14 @@ public class year5GameManager3 : MonoBehaviour
             if (currentQuestion.isCorrect3)
             {
                 correct.Play(); // plays wrong sound
-                questionImage.texture = happySmiley.texture;
+                happySmiley.SetActive(true); sadSmiley.SetActive(false);
+                questionImageToggler.SetActive(false);
                 score3++;
             }
             else
             {
-                questionImage.texture = sadSmiley.texture;
+                sadSmiley.SetActive(true); happySmiley.SetActive(false);
+                questionImageToggler.SetActive(false);
             }
 
             StartCoroutine(TransitionToNextQuestion()); // loads new question after user selection
@@ -201,12 +210,14 @@ public class year5GameManager3 : MonoBehaviour
             if (currentQuestion.isCorrect4)
             {
                 correct.Play(); // plays wrong sound
-                questionImage.texture = happySmiley.texture;
+                happySmiley.SetActive(true); sadSmiley.SetActive(false);
+                questionImageToggler.SetActive(false);
                 score3++;
             }
             else
             {
-                questionImage.texture = sadSmiley.texture;
+                sadSmiley.SetActive(true); happySmiley.SetActive(false);
+                questionImageToggler.SetActive(false);
             }
 
             StartCoroutine(TransitionToNextQuestion()); // loads new question after user selection
@@ -223,12 +234,14 @@ public class year5GameManager3 : MonoBehaviour
             if (currentQuestion.isCorrect5)
             {
                 correct.Play(); // plays wrong sound
-                questionImage.texture = happySmiley.texture;
+                happySmiley.SetActive(true); sadSmiley.SetActive(false);
+                questionImageToggler.SetActive(false);
                 score3++;
             }
             else
             {
-                questionImage.texture = sadSmiley.texture;
+                sadSmiley.SetActive(true); happySmiley.SetActive(false);
+                questionImageToggler.SetActive(false);
             }
 
             StartCoroutine(TransitionToNextQuestion()); // loads new question after user selection
