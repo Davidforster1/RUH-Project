@@ -93,18 +93,6 @@ public class year1GameManager : MonoBehaviour {
         emailPin = emailPinInput.text;
     }
 
-    public void ToggleHelpScreen() // toggles help text
-    {
-        if (helpCanvas.activeSelf == false)
-        {
-            helpCanvas.SetActive(true);
-        }
-        else
-        {
-            helpCanvas.SetActive(false);
-        }
-    }
-
     void SetRandomImage() // sets the random question 
     {
         int randomImageIndex = Random.Range(0, unansweredQuestions.Count);

@@ -43,11 +43,6 @@ public class mainMenuNav : MonoBehaviour {
         SceneManager.LoadScene("mainMenu");
     }
 
-    public void ToggleHelpScreen() // toggles help text
-    {
-        helpCanvas.SetActive (false);
-    }
-
     public void UserSelectYear1Activity()
     {
         SceneManager.LoadScene("year1Activity");
@@ -253,4 +248,23 @@ public class mainMenuNav : MonoBehaviour {
             escapeCanvas.SetActive(false);
         }
     }
+
+
+    public void ToggleHelpScreen() // toggles help text
+    {
+        if (helpCanvas.activeSelf == false)
+        {
+            helpCanvas.SetActive(true);
+        }
+        else
+        {
+            helpCanvas.SetActive(false);
+        }
+    }
+    
+    public void DisableHelpScreen()
+    {
+        helpCanvas.SetActive(false);
+    }
+
 }
