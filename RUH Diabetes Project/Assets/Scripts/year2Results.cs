@@ -13,7 +13,7 @@ public class year2Results : MonoBehaviour
     void Start()
     {
         score = year2GameManager.score + year2GameManager2.score2;
-        questionsDone = year2GameManager.questionsDoneOne + year2GameManager2.questionsDoneTwo;
+        questionsDone = year2GameManager.pointsAvailable + year2GameManager2.questionsDoneTwo;
         resultsText.text = "You scored " + score.ToString() + "/" + questionsDone;
     }
 }

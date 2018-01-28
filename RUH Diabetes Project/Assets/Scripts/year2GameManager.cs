@@ -15,6 +15,7 @@ public class year2GameManager : MonoBehaviour
     public static List<string> questionListYear2Part1 = new List<string>(); // questions list
     public static List<string> answerListYear2Part1 = new List<string>(); // answers list
     public static List<string> userSelectionListYear2Part1 = new List<string>(); // user selections list
+    public static List<string> tempemailcreator = new List<string>(); // holds user selections then adds to the user selection list as 1 entry
 
     [SerializeField]
     public GameObject helpCanvas;
@@ -74,6 +75,10 @@ public class year2GameManager : MonoBehaviour
     private bool beenClicked;
 
     public static string emailPin = ""; // stores the user pin number
+
+    public bool touched1, touched2, touched3 = false; // stores which ones are currently selected
+
+    public static int pointsAvailable;
 
     void Start()
     {
@@ -143,13 +148,118 @@ public class year2GameManager : MonoBehaviour
         questionsDoneOne++;
     }
 
-    public void firstAnswer()
-    {
-        if (!beenClicked)
+    public void Touchedlogic1()
+{
+        if (touched1 == false)
         {
-            beenClicked = true;
-            userSelectionListYear2Part1.Add(currentQuestion.imageLabel);
-            if (currentQuestion.isCorrect)
+            touched1 = true;
+            Color temp = answer1.color; // holds colour value
+            temp.a = 0.5f; // alpha = 50%
+            answer1.color = temp; // applies temp colour to image
+        }
+        // light up image or something 
+        else
+        {
+            touched1 = false;
+            Color temp = answer1.color; // holds colour value
+            temp.a = 1f; // alpha = 1
+            answer1.color = temp; // applies temp colour to image
+        }
+}
+
+    public void Touchedlogic2()
+    {
+        if (touched2 == false)
+        {
+            touched2 = true;
+            Color temp = answer2.color; // holds colour value
+            temp.a = 0.5f; // alpha = 50%
+            answer2.color = temp; // applies temp colour to image
+        }
+        // light up image or something 
+        else
+        {
+            touched2 = false;
+            Color temp = answer2.color; // holds colour value
+            temp.a = 1f; // alpha = 1
+            answer2.color = temp; // applies temp colour to image
+        }
+    }
+
+    public void Touchedlogic3()
+    {
+        if (touched3 == false)
+        {
+            touched3 = true;
+            Color temp = answer3.color; // holds colour value
+            temp.a = 0.5f; // alpha = 50%
+            answer3.color = temp; // applies temp colour to image
+        }
+        else
+        {
+            touched3 = false;
+            Color temp = answer3.color; // holds colour value
+            temp.a = 1f; // alpha = 1
+            answer3.color = temp; // applies temp colour to image
+        }
+    }
+
+    public void answerselections()
+    {
+        {
+            if (touched1 == true)
+            {
+                firstAnswer();
+                tempemailcreator.Add(currentQuestion.imageLabel);
+                if (currentQuestion.isCorrect)
+                {
+                    pointsAvailable++;
+                }
+            }
+            else
+            {
+                tempemailcreator.Add(" ");
+                if (currentQuestion.isCorrect)
+                {
+                    pointsAvailable++;
+                }
+            }
+            if (touched2 == true)
+            {
+                secondAnswer();
+                tempemailcreator.Add(currentQuestion.image2Label);
+                if (currentQuestion.isCorrect2)
+                {
+                    pointsAvailable++;
+                }
+            }
+            else
+            {
+                tempemailcreator.Add(" ");
+                if (currentQuestion.isCorrect2)
+                {
+                    pointsAvailable++;
+                }
+            }
+            if (touched3 == true)
+            {
+                thirdAnswer();
+                tempemailcreator.Add(currentQuestion.image3Label);
+                if (currentQuestion.isCorrect3)
+                {
+                    pointsAvailable++;
+                }
+            }
+            else
+            {
+                tempemailcreator.Add(" ");
+                if (currentQuestion.isCorrect3)
+                {
+                    pointsAvailable++;
+                }
+            }
+
+            if (currentQuestion.isCorrect && touched1 == true || currentQuestion.isCorrect2 && touched2 == true || currentQuestion.isCorrect3 && touched3 == true)
             {
                 correct.Play(); // plays wrong sound
                 happySmiley.SetActive(true); sadSmiley.SetActive(false);
@@ -162,7 +272,22 @@ public class year2GameManager : MonoBehaviour
                 questionImageToggler.SetActive(false);
             }
 
+            tempemailcreator.ToArray();
+            userSelectionListYear2Part1.Add(tempemailcreator[0] + tempemailcreator[1] +  tempemailcreator[2]); // combines 3 possible answers into one list entry
+            tempemailcreator.Clear(); // resets list for next question
             StartCoroutine(TransitionToNextQuestion()); // loads new question after user selection
+        }
+    }
+
+    public void firstAnswer()
+    {
+        if (!beenClicked)
+        {
+            beenClicked = true;
+            if (currentQuestion.isCorrect)
+            {
+                score++;
+            }
         }
     }
 
@@ -171,22 +296,10 @@ public class year2GameManager : MonoBehaviour
         if (!beenClicked)
         {
             beenClicked = true;
-            userSelectionListYear2Part1.Add(currentQuestion.image2Label);
             if (currentQuestion.isCorrect2)
             {
-                correct.Play(); // plays wrong sound
-                happySmiley.SetActive(true); sadSmiley.SetActive(false);
-                questionImageToggler.SetActive(false);
                 score++;
             }
-            else
-            {
-                sadSmiley.SetActive(true); happySmiley.SetActive(false);
-                questionImageToggler.SetActive(false);
-            }
-
-            StartCoroutine(TransitionToNextQuestion()); // loads new question after user selection
-
         }
     }
 
@@ -195,22 +308,10 @@ public class year2GameManager : MonoBehaviour
         if (!beenClicked)
         {
             beenClicked = true;
-            userSelectionListYear2Part1.Add(currentQuestion.image3Label);
             if (currentQuestion.isCorrect3)
             {
-                correct.Play(); // plays wrong sound
-                happySmiley.SetActive(true); sadSmiley.SetActive(false);
-                questionImageToggler.SetActive(false);
                 score++;
             }
-            else
-            {
-                sadSmiley.SetActive(true); happySmiley.SetActive(false);
-                questionImageToggler.SetActive(false);
-            }
-
-            StartCoroutine(TransitionToNextQuestion()); // loads new question after user selection
-
         }
     }
 

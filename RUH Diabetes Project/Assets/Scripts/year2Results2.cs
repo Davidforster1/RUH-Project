@@ -27,7 +27,7 @@ public class year2Results2 : MonoBehaviour
     {
         emailPlaceholder.text = year1GameManager.emailAddress; // placeholder in the email input becomes the last entered email
         score = year2GameManager.score + year2GameManager2.score2;
-        questionsDone = year2GameManager.questionsDoneOne + year2GameManager2.questionsDoneTwo;
+        questionsDone = year2GameManager.pointsAvailable + year2GameManager2.questionsDoneTwo;
         resultsText.text = "You scored " + score.ToString() + "/" + questionsDone;
 
         if (year2GameManager2.emailTries > 0) // if more than 1 unsuccessful email, the instructions text becomes this 
