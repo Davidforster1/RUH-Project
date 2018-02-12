@@ -353,6 +353,7 @@ public class year2GameManager2 : MonoBehaviour
         year2GameManager.questionsDoneOne = 0;
         score2 = 0;
         questionsDoneTwo = 0;
+        year2GameManager.pointsAvailable = 0;
         year2GameManager.questionListYear2Part1.Clear();
         year2GameManager.userSelectionListYear2Part1.Clear();
         year2GameManager.answerListYear2Part1.Clear();

@@ -142,6 +142,7 @@ public class year2GameManager : MonoBehaviour
             questionListYear2Part1.ToArray(); // sets all the lists to arrays for email format
             answerListYear2Part1.ToArray();
             userSelectionListYear2Part1.ToArray();
+            Debug.Log(score);
             SceneManager.LoadScene("year2Menu2"); // if questions done = all of them, load results screen
         }
 
@@ -205,8 +206,7 @@ public class year2GameManager : MonoBehaviour
     }
 
     public void answerselections()
-    {
-        {
+    { 
             if (touched1 == true)
             {
                 firstAnswer();
@@ -264,7 +264,6 @@ public class year2GameManager : MonoBehaviour
                 correct.Play(); // plays wrong sound
                 happySmiley.SetActive(true); sadSmiley.SetActive(false);
                 questionImageToggler.SetActive(false);
-                score++;
             }
             else
             {
@@ -276,43 +275,30 @@ public class year2GameManager : MonoBehaviour
             userSelectionListYear2Part1.Add(tempemailcreator[0] + tempemailcreator[1] +  tempemailcreator[2]); // combines 3 possible answers into one list entry
             tempemailcreator.Clear(); // resets list for next question
             StartCoroutine(TransitionToNextQuestion()); // loads new question after user selection
-        }
     }
 
     public void firstAnswer()
     {
-        if (!beenClicked)
-        {
-            beenClicked = true;
             if (currentQuestion.isCorrect)
             {
                 score++;
             }
-        }
     }
 
     public void secondAnswer()
     {
-        if (!beenClicked)
-        {
-            beenClicked = true;
             if (currentQuestion.isCorrect2)
             {
                 score++;
             }
-        }
     }
 
     public void thirdAnswer()
     {
-        if (!beenClicked)
-        {
-            beenClicked = true;
             if (currentQuestion.isCorrect3)
             {
                 score++;
             }
-        }
     }
 
     public void exitEarly()
